@@ -18,44 +18,50 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
-    :root {
-      /* Neon lime primary */
-      --bs-primary: #c6ff00;
-      --bs-primary-rgb: 198, 255, 0;
-      --gradient-dark: linear-gradient(140deg,#0d0d0d 0%,#1a1a1a 50%,#000 100%);
+     :root{
+      --bs-primary:#c6ff00;
+      --bs-primary-rgb:198,255,0;
+      --gradient-dark:linear-gradient(140deg,#0d0d0d 0%,#1a1a1a 50%,#000 100%);
+    }
+    body{font-family:'Poppins',sans-serif;background:var(--gradient-dark) fixed;color:#e2e2e2;scroll-behavior:smooth}
+    a{transition:color .2s}
+    a:hover{color:var(--bs-primary)}
+
+    /* Navbar */
+    .navbar{backdrop-filter:blur(16px) saturate(180%);background:rgba(0,0,0,.55)!important;border-bottom:1px solid rgba(255,255,255,.05)}
+    .nav-link.active{color:var(--bs-primary)!important}
+
+    /* Hero */
+    .hero{
+      height:80vh;
+      background:url('https://placehold.co/1600x900/png?text=Menu+Hero') center/cover no-repeat;
+      position:relative;
+      display:flex;
+      flex-direction:column;        /* <—  disposizione in colonna */
+      align-items:center;           /* centra orizzontalmente */
+      justify-content:center;       /* centra verticalmente */
+      text-align:center;            /* allinea il testo */
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--gradient-dark) fixed;
-      color: #e2e2e2;
-      scroll-behavior: smooth;
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.65);
     }
 
-    a {transition: color .2s ease-in-out;}
-    a:hover {color: var(--bs-primary);} 
+    .hero h1,
+    .hero p,
+    .hero .btn{z-index:2}
 
-    /* ===== NAVBAR ===== */
-    .navbar {
-      backdrop-filter: blur(16px) saturate(180%);
-      background: rgba(0,0,0,.55) !important;
-      border-bottom: 1px solid rgba(255,255,255,.05);
-    }
+    .btn-lime{--bs-btn-bg:var(--bs-primary);--bs-btn-border-color:transparent;--bs-btn-hover-bg:#333333;--bs-btn-hover-border-color:transparent;color:#000;}
 
-    /* ===== HERO ===== */
-    .hero-swiper,.hero-swiper .swiper-slide{height:100vh;width:100%}
-    .hero-slide{background-size:cover;background-position:center;position:relative;overflow:hidden}
-    .hero-slide::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
-    .hero-content{z-index:2}
-
-    .btn-lime{--bs-btn-bg:var(--bs-primary);--bs-btn-border-color:transparent;--bs-btn-hover-bg:#d4ff4d;--bs-btn-hover-border-color:transparent;color:#000;}
 
     /* ===== GLASS CARD ===== */
     .glass-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .4s ease}
     .glass-card:hover{transform:translateY(-6px)}
 
     /* Section padding */
-    section{padding:6rem 0}
     section:nth-of-type(even){background:rgba(255,255,255,.02)}
 
     /* Testimonials avatar */
@@ -64,59 +70,48 @@
 </head>
 <body>
 
-  <!-- ==================== NAVBAR ==================== -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#"><i class="bi bi-pizza text-primary me-2"></i>Pizza Parlor</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
-          <li class="nav-item"><a class="nav-link" href="#about">Chi Siamo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="#testimonials">Recensioni</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contatti</a></li>
+      <a class="navbar-brand fw-bold" href="index.html"><img src="images/Logo _bambú-t.png" width="160px" class="img-fluid" alt=""></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><i class="bi bi-list" style="font-size: 2.5em;"></i></button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="chisiamo.html">Chi Siamo</a></li>
+          <li class="nav-item"><a class="nav-link " href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="steakhouse.html">Steakhouse</a></li>
+          <li class="nav-item"><a class="nav-link" href="affittacamere.html">Affittacamere</a></li>
+          <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ==================== HERO / SWIPER ==================== -->
-  <header class="swiper hero-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide hero-slide" style="background-image:url('https://placehold.co/1600x900/png?text=Hero+Image+1');">
-        <div class="container h-100 d-flex flex-column justify-content-center align-items-start text-white hero-content" data-aos="fade-up" data-aos-delay="150">
-          <h1 class="display-2 fw-bold mb-3 text-uppercase">Pizza <span class="text-primary">Neon</span> Vibes</h1>
-          <p class="lead mb-4">Ingredienti premium e creatività senza limiti.</p>
-          <a href="#menu" class="btn btn-lg btn-lime">Esplora il Menu</a>
-        </div>
-      </div>
-      <div class="swiper-slide hero-slide" style="background-image:url('https://placehold.co/1600x900/png?text=Hero+Image+2');">
-        <div class="container h-100 d-flex flex-column justify-content-center align-items-start text-white hero-content" data-aos="fade-up" data-aos-delay="150">
-          <h1 class="display-2 fw-bold mb-3 text-uppercase">Gusto Futuristico</h1>
-          <p class="lead mb-4">Tradizione napoletana con un tocco modernissimo.</p>
-          <a href="#about" class="btn btn-lg btn-outline-light">La Nostra Storia</a>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
+  <!-- HERO -->
+  <header class="hero px-3">
+    <h1 class="display-3 fw-bold text-uppercase">
+      Ristorante <span class="text-primary">Bambù</span> 
+    </h1>
+    <p class="lead mb-4">Un esperienza con ingredienti premium 100% Italiani e creatività senza limiti.</p>
+    <a href="#menu" class="btn btn-lg btn-lime">Esplora il Menu</a>
   </header>
 
   <!-- ==================== ABOUT ==================== -->
-  <section id="about">
+  <section id="about" class="py-5 px-3">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6" data-aos="fade-right">
+      <div class="row align-items-center g-md-5 g-0">
+        <div class="col-lg-6" data-aos="fade-up">
           <img src="https://placehold.co/800x600/png?text=About+Us" class="img-fluid rounded-4 shadow-lg" alt="About us placeholder">
         </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-          <span class="badge bg-primary mb-3">Dal 1998</span>
-          <h2 class="fw-bold mb-3">La Nostra <span class="text-primary">Essenza</span></h2>
-          <p class="mb-4">Dalla classica margherita a creazioni d'avanguardia, fondiamo passione e ricerca per stupirti ad ogni morso.</p>
-          <div class="row text-center g-4">
+        <div class="col-lg-6 pt-md-0 pt-5" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="fw-bold mb-3">La Nostra <span class="text-primary">Essenza</span> dal 1998</h2>
+          <p class="mb-4">Dalla classica margherita a costate e fiorentine scelte da tutta Europa, fondiamo passione e ricerca per stupirti ad ogni morso.</p>
+          <div class="row text-center g-4 mb-4">
             <div class="col-6">
               <div class="glass-card p-4">
-                <h3 class="display-6 fw-bold text-primary mb-0">60+</h3>
-                <small>Ricette Signature</small>
+                <h3 class="display-6 fw-bold text-primary mb-0">5★</h3>
+                <small>Media Recensioni</small>
               </div>
             </div>
             <div class="col-6">
@@ -126,71 +121,86 @@
               </div>
             </div>
           </div>
+          <a href="#menu" class="btn btn-lg btn-lime">Chi Siamo</a>
+          
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== MENU ==================== -->
-  <section id="menu">
-    <div class="container text-center">
-      <span class="badge bg-primary mb-3">Il Menu</span>
-      <h2 class="fw-bold mb-5">Scopri le nostre <span class="text-primary">Creazioni</span></h2>
-      <div class="row g-4">
-        <!-- Card 1 -->
-        <div class="col-sm-6 col-lg-4" data-aos="zoom-in">
-          <div class="glass-card h-100">
-            <img src="https://placehold.co/800x600/png?text=Pizza+1" class="img-fluid rounded-top" alt="Pizza 1">
-            <div class="p-4">
-              <h5 class="mb-2">Margherita 2.0</h5>
-              <p class="small text-muted">San Marzano bio, mozzarella di bufala, basilico criogenico.</p>
-            </div>
-            <div class="p-3 d-flex justify-content-between align-items-center border-top border-light-subtle">
-              <span class="fw-bold">€8,00</span>
-              <button class="btn btn-sm btn-lime"><i class="bi bi-cart-plus"></i></button>
-            </div>
-          </div>
+  <!-- MISSION & VALUES -->
+  <section id="missione" class="py-5 px-3">
+    <div class="container">
+      <div class="row align-items-center g-md-5 g-0">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-up">
+          <img src="https://placehold.co/800x600/png?text=Missione" class="img-fluid rounded-4 shadow-lg" alt="Missione">
         </div>
-        <!-- Card 2 -->
-        <div class="col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="glass-card h-100">
-            <img src="https://placehold.co/800x600/png?text=Pizza+2" class="img-fluid rounded-top" alt="Pizza 2">
-            <div class="p-4">
-              <h5 class="mb-2">Cyber Diavola</h5>
-              <p class="small text-muted">Salame pixelato, jalapeño neon, mozzarella fusa.</p>
-            </div>
-            <div class="p-3 d-flex justify-content-between align-items-center border-top border-light-subtle">
-              <span class="fw-bold">€9,50</span>
-              <button class="btn btn-sm btn-lime"><i class="bi bi-cart-plus"></i></button>
-            </div>
-          </div>
+        <div class="col-lg-6 order-lg-1 pt-md-0 pt-5" data-aos="fade-up" data-aos-delay="50">
+          <h2 class="fw-bold mb-4">Passione, Qualità, scopri <span class="text-primary">il Menù</span></h2>
+          <p class="mb-4">Sin dalle origini nel cuore di Roma, il nostro obiettivo è stato quello di garantire un’esperienza culinaria che unisca tradizione napoletana e sperimentazione contemporanea.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Ingredienti 100% Italiani e tracciabili</span></li>
+            <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Ricette originali in continua evoluzione</span></li>
+            <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Impegno per la sostenibilità ambientale</span></li>
+          </ul>
+          <a href="#menu" class="btn btn-lg btn-lime me-2">Esplora il Menu</a>
+          <a href="#menu" class="btn btn-lg btn-outline-light">Steakhouse</a>
         </div>
-        <!-- Card 3 -->
-        <div class="col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="glass-card h-100">
-            <img src="https://placehold.co/800x600/png?text=Pizza+3" class="img-fluid rounded-top" alt="Pizza 3">
-            <div class="p-4">
-              <h5 class="mb-2">Veggie Galaxy</h5>
-              <p class="small text-muted">Costellazione di verdure stagionali, formaggio veg, erbe stellari.</p>
-            </div>
-            <div class="p-3 d-flex justify-content-between align-items-center border-top border-light-subtle">
-              <span class="fw-bold">€9,00</span>
-              <button class="btn btn-sm btn-lime"><i class="bi bi-cart-plus"></i></button>
-            </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SECTION – AFFITTACAMERE CON CARDS E SFONDO SCURO -->
+<section id="affittacamere" class="py-5 px-3 text-light" style="background-color: #1a1a1a; scroll-margin-top: 100px;">
+  <div class="container">
+    <div class="row g-4 d-flex align-items-center justify-content-center">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4 pb-5 pb-md-0">
+        <h2 class="fw-bold mb-3">
+          Dormi <span class="text-primary">da noi</span>, vivi la città
+        </h2>
+        <p class="mb-4">
+          A pochi passi dal nostro ristorante troverai camere luminose,
+          arredate in stile contemporaneo: l’ideale per chi vuole
+          gustare la cucina Bambù e svegliarsi già nel cuore della
+          movida cittadina.
+        </p>
+        <a href="#contatti" class="btn btn-lime btn-lg"><i class="bi bi-envelope-paper me-2"></i>Contattaci per Disponibilità</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 bg-dark text-light border-0 shadow">
+          <img src="https://placehold.co/600x400?text=Camera+Moderna" class="card-img-top" alt="Camera Moderna">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Camere Moderne</h5>
+            <p class="card-text">Ambienti accoglienti, climatizzazione e connessione Wi-Fi gratuita.</p>
           </div>
         </div>
       </div>
-      <a href="#contact" class="btn btn-lg btn-lime mt-5">Prenota Ora</a>
+
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 bg-dark text-light border-0 shadow">
+          <img src="https://placehold.co/600x400?text=Vista+Esterno" class="card-img-top" alt="Esterno della struttura">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">Posizione Strategica</h5>
+            <p class="card-text">Tranquillità e vicinanza ai principali punti d’interesse locali.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ==================== TESTIMONIALS ==================== -->
-  <section id="testimonials">
+  <section id="testimonials" class="py-5 px-3">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <span class="badge bg-primary mb-3">Dicono di Noi</span>
-          <h2 class="fw-bold mb-5">Clienti <span class="text-primary">Soddisfatti</span></h2>
+          <h2 class="fw-bold mb-5">Leggi le <span class="text-primary">Recensioni</span></h2>
         </div>
       </div>
       <div class="swiper testimonial-swiper" data-aos="fade-up">
@@ -224,7 +234,7 @@
           <!-- Testimonial 3 -->
           <div class="swiper-slide p-4">
             <div class="glass-card p-4 h-100">
-              <p class="fs-5 mb-4 text-white-50">“Finalmente opzioni vegane creative e buonissime, top!”</p>
+              <p class="fs-5 mb-4 text-white-50">“Finalmente opzioni vegane creative e buonissime, <br> top!”</p>
               <div class="d-flex align-items-center gap-3">
                 <img src="https://placehold.co/80x80/png?text=C" class="avatar" alt="avatar">
                 <div>
@@ -235,18 +245,17 @@
             </div>
           </div>
         </div>
-        <div class="swiper-pagination mt-4"></div>
       </div>
     </div>
   </section>
 
   <!-- ==================== CONTACT ==================== -->
-  <section id="contact" class="position-relative overflow-hidden">
+  <section id="contact" class="position-relative overflow-hidden py-5 px-3" >
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background:url('https://placehold.co/1600x800/png?text=Contact+Bg') center/cover;opacity:.15;"></div>
     <div class="container position-relative" data-aos="fade-up">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="fw-bold mb-4">Ci Trovi a Roma</h2>
+          <h2 class="fw-bold mb-4">Ci Trovi a <span class="text-primary">Poggio Rusco</span></h2>
           <p class="lead mb-5">Via della Pizza 123, 00100 Roma • +39 06 1234567 • info@pizzaparlor.it</p>
           <a href="#" class="btn btn-lg btn-outline-light"><i class="bi bi-geo-alt me-1"></i>Indicazioni</a>
         </div>
@@ -284,7 +293,7 @@
       spaceBetween:40,
       autoplay:{delay:6500,disableOnInteraction:false},
       pagination:{el:'.testimonial-swiper .swiper-pagination',clickable:true},
-      breakpoints:{768:{slidesPerView:2}}
+      breakpoints:{768:{slidesPerView:3}}
     });
 
     // Rellax

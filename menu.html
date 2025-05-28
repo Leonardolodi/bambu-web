@@ -1,117 +1,777 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- Meta -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Menu • Pizza Parlor Neon-Lime</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menù – Ristorante Bambù Neon Lime</title>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap 5 + Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-  <!-- Swiper, AOS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
     :root{
-      --bs-primary:#b0ff00;     /* verde lime */
-      --glass-bg:rgba(255,255,255,.08);
-      --glass-brd:rgba(255,255,255,.2);
+      --bs-primary:#c6ff00;
+      --bs-primary-rgb:198,255,0;
+      --gradient-dark:linear-gradient(140deg,#0d0d0d 0%,#1a1a1a 50%,#000 100%);
     }
-    body{
-      font-family:'Poppins',sans-serif;
-      background:linear-gradient(135deg,#0a0a0f 0%,#101018 50%,#0f0f16 100%);
-      color:#e0e0e0;
-    }
-    .navbar-glass{
-      background:var(--glass-bg);
-      border-bottom:1px solid var(--glass-brd);
-      backdrop-filter:blur(14px);
-    }
-    h1,h2,h3,h4{color:var(--bs-primary);font-weight:600;}
-    .glass-card{
-      background:var(--glass-bg);
-      border:1px solid var(--glass-brd);
-      border-radius:1rem;
-      backdrop-filter:blur(12px);
-    }
-    /* altezza viewer */
-    #pdf-viewer{height:85vh;min-height:600px;border:none;border-radius:1rem;}
+    body{font-family:'Poppins',sans-serif;background:var(--gradient-dark) fixed;color:#e2e2e2;scroll-behavior:smooth}
+    a{transition:color .2s}
+    a:hover{color:var(--bs-primary)}
+
+    /* Navbar */
+    .navbar{backdrop-filter:blur(16px) saturate(180%);background:rgba(0,0,0,.55)!important;border-bottom:1px solid rgba(255,255,255,.05)}
+    .nav-link.active{color:var(--bs-primary)!important}
+
+    /* Hero */
+    .hero{height:60vh;background:url('https://placehold.co/1600x900/png?text=Menu+Hero') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.65)}
+    .hero h1{z-index:2}
+
+    /* Category Nav */
+    .cat-nav{position:sticky;top:100px;z-index:1030;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05);z-index: 2;}
+    .cat-nav a{white-space:nowrap;font-weight:500;padding:.75rem 1rem;display:inline-block;color:#e2e2e2}
+    .cat-nav a:hover,.cat-nav a.active{color:var(--bs-primary)}
+
+    /* Glass Card Item */
+    .item-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.25rem;transition:transform .3s}
+    .item-card:hover{transform:translateY(-4px)}
+    .item-title{font-weight:500;color:#fff}
+    .item-price{color:var(--bs-primary);font-weight:600;white-space:nowrap}
+
+    section{padding:5rem 0}
+    section:nth-of-type(even){background:rgba(255,255,255,.02)}
   </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#catNav">
 
-<!-- ============== NAVBAR ============== -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass">
-  <div class="container">
-    <a class="navbar-brand fw-semibold" href="index.html">Pizza Parlor</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"><span class="navbar-toggler-icon"></span></button>
-    <div id="navbarMenu" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">Chi Siamo</a></li>
-        <li class="nav-item"><a class="nav-link" href="rooms.html">Affittacamere</a></li>
-        <li class="nav-item"><a class="nav-link" href="contacts.html">Contatti</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">Menu</a></li>
-      </ul>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><img src="images/Logo _bambú-t.png" width="160px" class="img-fluid" alt=""></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><i class="bi bi-list" style="font-size: 2.5em;"></i></button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="chisiamo.html">Chi Siamo</a></li>
+          <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="steakhouse.html">Steakhouse</a></li>
+          <li class="nav-item"><a class="nav-link" href="affittacamere.html">Affittacamere</a></li>
+          <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" class="px-3">
+    <h1 class="display-3 fw-bold text-uppercase"><span class="text-primary">Il</span> Menù</h1>
+  </header>
+
+  <!-- CATEGORY NAV -->
+  <div id="catNav" class="cat-nav overflow-auto" >
+    <div class="container-fluid d-flex flex-nowrap gap-2">
+      <a href="#allergeni">Allergeni</a>
+      <a href="#vini">Vini</a>
+      <a href="#antipasti">Antipasti</a>
+      <a href="#primi">Primi</a>
+      <a href="#secondi">Secondi</a>
+      <a href="#steakhouse">Steak House</a>
+      <a href="#contorni">Contorni</a>
+      <a href="#tigelleria">Tigelleria</a>
+      <a href="#pizze-gourmet">Pizze Gourmet</a>
+      <a href="#pizze-classiche">Pizze Classiche</a>
+      <a href="#pizze-speciali">Pizze Speciali</a>
+      <a href="#tagliere-rotolo">Tagliere &amp; Rotolo</a>
+      <a href="#mezzi-calzoni">Mezzi Calzoni</a>
+      <a href="#bevande">Bevande</a>
     </div>
   </div>
-</nav>
 
-<!-- ============== HERO ============== -->
-<header class="py-7" style="padding-top:8rem!important">
-  <div class="container text-center" data-aos="fade-down">
-    <h1 class="display-4 mb-3">Il Nostro Menu</h1>
-    <p class="lead mx-auto" style="max-width:640px">
-      Scorri, ingrandisci, scarica: sfoglia tutte le nostre pizze, focacce e bevande nel comodo
-      viewer interattivo.
-    </p>
-  </div>
-</header>
-
-<!-- ============== PDF VIEWER ============== -->
-<section class="py-5">
+  <!-- SECTION ALLERGENI -->
+<section id="allergeni" class="px-3" style="scroll-margin: 150px;">
   <div class="container">
-    <div class="glass-card p-4" data-aos="zoom-in">
-      <!-- PDF.js viewer in iframe -->
-        <iframe
-        id="pdf-viewer"
-        src="/menu.pdf" width="100%"
-        title="Menu PDF">
-        </iframe>
-
-
-      <!-- CTA download -->
-      <div class="text-center pt-4">
-        <a href="assets/menu.pdf" download class="btn btn-primary px-4">
-          <i class="bi bi-download me-2"></i>Scarica il PDF
-        </a>
+    <div class="row justify-content-center" data-aos="fade-up">
+      <div class="col-lg-8">
+        <div class="item-card p-4 text-center">
+          <div class="mb-3">
+            <i class="bi bi-exclamation-triangle-fill fs-1 text-primary"></i>
+          </div>
+          <h3 class="fw-bold mb-3">Allergie &amp; Intolleranze</h3>
+          <p class="mb-0">
+            Se soffri di <strong>allergie</strong> o <strong>intolleranze alimentari</strong>, segnalalo al nostro personale:
+            saremo lieti di evidenziarti i prodotti da evitare e fornirti un
+            <strong>menù dettagliato</strong> con l’elenco delle sostanze che possono provocare reazioni avverse.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== FOOTER ============== -->
-<footer class="py-4">
-  <div class="container text-center small text-secondary">
-    © 2025 Pizza Parlor • P.IVA 01234567890 • 
-    <a href="#" class="link-light text-decoration-none">Privacy</a>
-  </div>
-</footer>
+<!-- SECTION VINI (versione pulita) -->
+<section id="vini" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-wine me-2 text-primary"></i>Carta Vini
+    </h2>
 
-<!-- ===== Scripts ===== -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
-<script>
-  AOS.init({ once:true, duration:800 });
-  new Rellax('.rellax');
-</script>
+    <!-- ========== CHAMPAGNE ========== -->
+    <h4 class="mt-4 mb-3 text-primary">Champagne</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Louis Roederer</span><span>€80.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Perrier-Jouët Grand Brut</span><span>€75.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Philipponnat</span><span>€70.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Moët &amp; Chandon Rosé</span><span>€95.00</span></li>
+    </ul>
+
+    <!-- ========== VINO ALLA SPINA ========== -->
+    <h4 class="mb-3 text-primary">Vino alla Spina</h4>
+    <p class="mb-1"><strong>Bianco · Lambrusco · Rosé</strong></p>
+    <ul class="list-inline small mb-5">
+      <li class="list-inline-item me-3">1/4 l €3,00</li>
+      <li class="list-inline-item me-3">1/2 l €6,00</li>
+      <li class="list-inline-item">1 l €10,00</li>
+    </ul>
+
+    <!-- ========== BOLLICINE · LOMBARDIA ========== -->
+    <h4 class="mb-3 text-primary">Bollicine · Lombardia</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Berlucchi Rosé</span><span>€30.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Contadi Castaldi Franciacorta Brut</span><span>€30.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Contadi Castaldi Franciacorta Satèn</span><span>€30.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Contadi Castaldi Rosé</span><span>€35.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Cà del Bosco “Cuvée Prestige”</span><span>€45.00</span></li>
+    </ul>
+
+    <!-- ========== FERMI · LOMBARDIA ========== -->
+    <h4 class="mb-3 text-primary">Fermi · Lombardia</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Corte del Lupo Rosso (Cà del Bosco)</span><span>€35.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Corte del Lupo Bianco (Cà del Bosco)</span><span>€40.00</span></li>
+    </ul>
+
+    <!-- ========== ROSSI · LOMBARDIA ========== -->
+    <h4 class="mb-3 text-primary">Rossi · Lombardia</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pjafoc Imperiale Lambrusco</span><span>€15.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Inciostar Lambrusco</span><span>€18.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Rays Lambrusco</span><span>€16.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Il Ferrante Lambrusco</span><span>€15.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Cabernet Sauvignon</span><span>€17.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ripasso Uve Merlot</span><span>€20.00</span></li>
+    </ul>
+
+    <!-- ========== BIANCHI FERMI · LOMBARDIA ========== -->
+    <h4 class="mb-3 text-primary">Bianchi fermi · Lombardia</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ottella Lugana</span><span>€22.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ottella “Le Crete” Riserva Lugana</span><span>€26.00</span></li>
+    </ul>
+
+    <!-- ========== BOLLICINE · TRENTINO ========== -->
+    <h4 class="mb-3 text-primary">Bollicine · Trentino</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ferrari Perlé 2017</span><span>€40.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ferrari Perlé Rosé 2017</span><span>€50.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ferrari Riserva Lunelli 2015</span><span>€80.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ferrari “Giulio” Riserva 2012</span><span>€170.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Altemasi Millesimato 2017</span><span>€25.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Alperegis Brut</span><span>€28.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Alperegis Rosé</span><span>€30.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Alperegis Pas Dosé</span><span>€45.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Terre dell’Orso Brut</span><span>€25.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Terre dell’Orso Rosé</span><span>€27.00</span></li>
+    </ul>
+
+    <!-- ========== BIANCHI FERMI · TRENTINO ========== -->
+    <h4 class="mb-3 text-primary">Bianchi fermi · Trentino</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Elena Walch Gewürztraminer</span><span>€22.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Elena Walch Müller Thurgau</span><span>€22.00</span></li>
+    </ul>
+
+    <!-- ========== BOLLICINE · VENETO ========== -->
+    <h4 class="mb-3 text-primary">Bollicine · Veneto</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Bortolin Angelo Valdobbiadene Extra Dry</span><span>€21.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Bortolin Angelo Valdobbiadene Brut</span><span>€21.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Val d’Oca Prosecco</span><span>€21.00</span></li>
+    </ul>
+
+    <!-- ========== ROSSI FERMI · VENETO ========== -->
+    <h4 class="mb-3 text-primary">Rossi fermi · Veneto</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Amarone Farina Classico</span><span>€40.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Valpolicella Classico</span><span>€15.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Valpolicella Ripasso Farina</span><span>€20.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Valpolicella Speri Ripasso</span><span>€25.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Valpolicella Speri Sant’Urbano Sup.</span><span>€27.00</span></li>
+    </ul>
+
+    <!-- ========== FRIULI-VENEZIA GIULIA ========== -->
+    <h4 class="mb-3 text-primary">Friuli-Venezia Giulia</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Bastianich Ribolla Gialla</span><span>€24.00</span></li>
+    </ul>
+
+    <!-- ========== TOSCANA ========== -->
+    <h4 class="mb-3 text-primary">Toscana</h4>
+    <ul class="list-unstyled mb-5">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Peppoli Chianti Classico</span><span>€24.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Bruciato Antinori Bolgheri</span><span>€35.00</span></li>
+    </ul>
+
+    <!-- ========== CAMPANIA ========== -->
+    <h4 class="mb-3 text-primary">Campania</h4>
+    <ul class="list-unstyled mb-4">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Falanghina Mastroberardino</span><span>€18.00</span></li>
+    </ul>
+  </div>
+</section>
+
+
+
+ <!-- SECTION ANTIPASTI (versione pulita) -->
+<section id="antipasti" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-egg-fried me-2 text-primary"></i>Antipasti
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tartare di manzo 120 g, cipolla di Tropea, mayo balsamica</span>
+        <span>€16.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tartare di manzo, scaglie di tartufo, mayo</span>
+        <span>€21.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Roast-beef a bassa T°, rucola e grana</span>
+        <span>€13.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Roast-beef con funghi freschi, grana &amp; tartufo</span>
+        <span>€18.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Sformatino di zucca, fonduta al parmigiano e tartufo</span>
+        <span>€13.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Antipasto Bambù (2 pax) – salumi &amp; gnocchi fritti</span>
+        <span>€15.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Antipasto di mare (piovra, seppia, gamberi)</span>
+        <span>€17.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Gran Antipasto di mare</span>
+        <span>€24.50</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION PRIMI (versione pulita) -->
+<section id="primi" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-bowl-hot me-2 text-primary"></i>Primi Piatti
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Passatelli al ragù bianco di salsiccia, fonduta di parmigiano</span>
+        <span>€14.50</span>
+      </li>
+      <li class="text-secondary small mb-2">Con tartufo €19.00</li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Pappardelle al ragù di cinghiale</span>
+        <span>€15.00</span>
+      </li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tortelli di zucca (burro &amp; salvia / pomodoro)</span>
+        <span>€15.00</span>
+      </li>
+      <li class="text-secondary small mb-2">Con tartufo €18.00</li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tortellini in brodo di cappone</span>
+        <span>€17.00</span>
+      </li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Risotto al tartufo <em>(min&nbsp;2 persone)</em></span>
+        <span>€22.00</span>
+      </li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Risotto Bambù – lambrusco, salsiccia, gorgonzola <em>(min&nbsp;2 persone)</em></span>
+        <span>€16.00</span>
+      </li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Linguine allo scoglio in pentola</span>
+        <span>€17.50</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+  <!-- SECTION SECONDI (versione pulita) -->
+<section id="secondi" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-knife me-2 text-primary"></i>Secondi Piatti
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <!-- Tagliate & Carni -->
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliata di filetto, rosmarino e sale nero di Cipro</span>
+        <span>€24.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliata di filetto con rucola e parmigiano</span>
+        <span>€25.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliata Bambù – rucola, pomodorini, radicchio, glassa</span>
+        <span>€25.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliata con noci, radicchio, pecorino</span>
+        <span>€25.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliata di filetto, parmigiano e tartufo</span>
+        <span>€28.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Filetto alla griglia</span>
+        <span>€24.50</span>
+      </li>
+
+      <!-- Pesce -->
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Fritto misto calamari &amp; gamberi</span>
+        <span>€16.50</span>
+      </li>
+      <li class="text-secondary small mb-2 ps-2">+ verdure pastellate €3</li>
+
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Spiedini misti (gamberi e calamari)</span>
+        <span>€16.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Grigliata di pesce mista</span>
+        <span>€27.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Branzino alla griglia ~600&nbsp;g</span>
+        <span>€22.00</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION STEAK HOUSE (versione pulita) -->
+<section id="steakhouse" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-flame me-2 text-primary"></i>Steak&nbsp;House
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Beef Ribs, patate al forno &amp; salse</span><span>€17.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Galletto della Valtellina&nbsp;500 g, patatine dippers</span><span>€16.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Costine di maiale – classiche</span><span>€17.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Costine di maiale – BBQ</span><span>€17.00</span>
+      </li>
+    </ul>
+
+    <p class="mt-5 small text-center" data-aos="fade-up">
+      Selezioniamo lombate europee e le frolliamo in frigo dedicato per carni
+      morbide e saporite. <em>Scansiona il QR code in sala o chiedi al personale
+      per le disponibilità del giorno.</em>
+    </p>
+  </div>
+</section>
+
+<!-- SECTION CONTORNI (versione pulita) -->
+<section id="contorni" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-basket2 me-2 text-primary"></i>Contorni
+    </h2>
+
+    <ul class="list-inline text-center" data-aos="fade-up">
+      <li class="list-inline-item mx-3 my-2">
+        Patate al forno – <strong>€5.00</strong>
+      </li>
+      <li class="list-inline-item mx-3 my-2">
+        Patatine fritte – <strong>€4.00</strong>
+      </li>
+      <li class="list-inline-item mx-3 my-2">
+        Patatine dippers – <strong>€4.50</strong>
+      </li>
+      <li class="list-inline-item mx-3 my-2">
+        Insalata mista – <strong>€5.00</strong>
+      </li>
+      <li class="list-inline-item mx-3 my-2">
+        Verdure grigliate – <strong>€5.00</strong>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION TIGELLERIA (versione pulita) -->
+<section id="tigelleria" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-disc me-2 text-primary"></i>Tigelleria &amp; Gnoccheria
+    </h2>
+
+    <p class="text-center mb-5" data-aos="fade-up">
+      Taglieri serviti con <em>Prosciutto crudo di Parma 24&nbsp;mesi</em>,
+      cotto, salame, mortadella e pancetta al pepe.
+    </p>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere Tigelle – stracchino, gorgonzola, gras pista, nutella</span>
+        <span>€17.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere Tigelle &amp; Gnocchi</span>
+        <span>€17.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere Gnocchi fritti</span>
+        <span>€17.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere solo Crudo di Parma 24&nbsp;mesi</span>
+        <span>€21.00</span>
+      </li>
+    </ul>
+
+    <p class="text-center mt-4 small text-secondary" data-aos="fade-up">
+      Aggiunta salse €1 &nbsp;–&nbsp; Piatto salumi misti €8
+    </p>
+  </div>
+</section>
+
+
+  <!-- SECTION PIZZE GOURMET (versione pulita) -->
+<section id="pizze-gourmet" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-star me-2 text-primary"></i>Pizze Gourmet
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Romagnola – crudo 24&nbsp;mesi, rucola, stracciatella, pom. secchi</span>
+        <span>€14.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>24&nbsp;Mesi – San Marzano DOP, bufala DOP, crudo 24 mesi, Parm. 24 m</span>
+        <span>€16.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tartufona – bufala, burro al tartufo, stracciatella, crudo, tartufo</span>
+        <span>€16.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Salento – San Marzano DOP, bufala, pom. secchi, burrata intera</span>
+        <span>€14.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>La Casareccia – bufala, porcini, guanciale, patate al forno</span>
+        <span>€13.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Regina Margherita – San Marzano DOP, bufala DOP</span>
+        <span>€12.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Cantabrico – San Marzano DOP, alici del Cantabrico, bufala</span>
+        <span>€13.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Pantelleria – San Marzano DOP, bufala, capperi, alici</span>
+        <span>€13.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Pistacchiosa – mortadella, burrata intera, pesto &amp; granella pistacchio</span>
+        <span>€14.50</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION Pizze Classiche (versione pulita) -->
+<section id="pizze-classiche" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-disc-fill me-2 text-primary"></i>Pizze Classiche
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <!-- Strie -->
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria al sale</span><span>€3.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria all'aglio</span><span>€4.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria con cipolla</span><span>€4.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria grana e rosmarino</span><span>€4.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria mista (gorgonzola, pomodoro, grana)</span><span>€5.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria rossa</span><span>€4.30</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Stria al gorgonzola</span><span>€4.30</span></li>
+
+      <!-- Gnocchini -->
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Gnocchino al crudo</span><span>€6.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Gnocchino stracchino e rucola</span><span>€6.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Gnocchino stracchino, rucola e crudo</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Gnocchino stracchino, rucola e cotto</span><span>€7.00</span></li>
+
+      <!-- Pizze base -->
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Margherita</span><span>€5.80</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Bufala</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Napoli</span><span>€7.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Romana</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Prosciutto cotto</span><span>€7.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Prosciutto crudo</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Prosciutto cotto e funghi</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Funghi trifolati</span><span>€7.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Funghi freschi</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Funghi chiodini</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Funghi misti</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Carciofi</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Scamorza e prosciutto cotto</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Spinaci e ricotta</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Quattro stagioni</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Prosciutto e salsiccia</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Capricciosa</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Quattro formaggi</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Calzone (cotto, funghi, carciofi)</span><span>€8.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Patatina</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Rucola</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Speck</span><span>€7.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Würstel</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Bresaola</span><span>€7.50</span></li>
+
+      <!-- Aggiuntive -->
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Radicchio</span><span>€7.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pancetta</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Salamino piccante</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Ortolana</span><span>€8.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Gorgonzola e radicchio</span><span>€8.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Grana e radicchio</span><span>€8.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Grana e pancetta</span><span>€8.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pomodorini e bufala</span><span>€8.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Mascarpone e speck</span><span>€9.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Tonno e cipolla</span><span>€8.50</span></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION Pizze Speciali (versione pulita) -->
+<section id="pizze-speciali" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-fire me-2 text-primary"></i>Pizze Speciali
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <!-- Prima serie -->
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Bambù – chiodini • mascarpone • crudo</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Alino – rucola • mascarpone • speck</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Montana – speck • brie • rucola</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Frencyfree – philadelphia • zucchine • pancetta</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Jolly – stracchino • salsiccia • porcini • pomodorini</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Valtellina – porcini • bufala • tartufo • bresaola</span><span>€11.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Tartufina – bufala • porcini • tartufo fresco</span><span>€14.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Boscaiola – porcini • funghi freschi • cotto • panna</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Parmigiana – melanzane • grana</span><span>€9.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Carbonara – grana • pancetta • uova</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Delicata – funghi • zucchine • pomodorini</span><span>€9.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Kaori – philadelphia • pomodorini • chiodini</span><span>€9.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Bolognina – mortadella • taleggio</span><span>€9.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Dietetica – radicchio • mela • aceto balsamico</span><span>€8.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Rustica – radicchio • gorgonzola • pancetta • noci</span><span>€10.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Mari e Monti – bufala • frutti di mare • funghi</span><span>€12.50</span></li>
+
+      <!-- Seconda serie -->
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Piccadella – cipolla • salame piccante • salsiccia • peperoni • gorgonzola</span><span>€11.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Gustosissima – porcini • cipolla • philadelphia • pomodorini</span><span>€11.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Zuccona – zucca • salsiccia • grana</span><span>€10.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Bomba – salame piccante • pancetta • würstel • salsiccia • cotto</span><span>€11.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Frutti di Mare – seppia • polpo • gamberi</span><span>€11.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Gamberetti – gamberi • ingredienti base</span><span>€11.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Foroni – zucchine • bresaola • grana (impasto integrale)</span><span>€11.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Pizza Tyson – bufala • cotto • funghi freschi</span><span>€11.50</span></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION Pizza Tagliere & Rotolo (versione pulita) -->
+<section id="tagliere-rotolo" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-layout-split me-2 text-primary"></i>Pizza Tagliere &amp; Rotolo
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <!-- Taglieri -->
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere Margherita (2/3&nbsp;pax)</span><span>€17.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere Farcita Normale</span><span>€21.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Tagliere Farcita Speciale</span><span>€26.00</span>
+      </li>
+      <li class="text-secondary small mb-2 ps-2">+ tartufo €5</li>
+
+      <!-- Rotoli -->
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Rotolo Vegetariano – mozzarella • verdure miste</span><span>€7.50</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Rotolo Delicato – mozzarella • cotto • stracchino • rucola</span><span>€8.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Rotolo Speciale – mozzarella • mascarpone • funghi • cotto</span><span>€8.50</span>
+      </li>
+
+      <!-- Extra -->
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Aggiunta Salse</span><span>€1.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Piatto Salumi Misti</span><span>€8.00</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION Mezzi Calzoni (versione pulita) -->
+<section id="mezzi-calzoni" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-person-lines-fill me-2 text-primary"></i>Mezzi&nbsp;Calzoni
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Fantasia – mozzarella • pomodoro • cotto/pancetta • funghi freschi • würstel</span>
+        <span>€9.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Braccia di Ferro – mozzarella • pomodoro • ricotta • spinaci/cotto • funghi</span>
+        <span>€9.00</span>
+      </li>
+      <li class="d-flex justify-content-between border-bottom py-1">
+        <span>Capriccioso – mozzarella • pomodoro • cotto • funghi • carciofi</span>
+        <span>€9.00</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION Bevande (versione pulita) -->
+<section id="bevande" class="px-3" style="scroll-margin:150px;">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">
+      <i class="bi bi-cup-straw me-2 text-primary"></i>Bevande
+    </h2>
+
+    <ul class="list-unstyled" data-aos="fade-up">
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Acqua 0.75&nbsp;l</span><span>€2.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Acqua 0.50&nbsp;l</span><span>€1.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Birra 1&nbsp;l</span><span>€9.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Birra media</span><span>€5.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Birra piccola</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coca-Cola 1&nbsp;l (vetro)</span><span>€7.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coca-Cola 1&nbsp;l (spina)</span><span>€7.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coca-Cola media</span><span>€4.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coca-Cola piccola</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coca-Cola lattina 33&nbsp;cl</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coca-Cola Zero 33&nbsp;cl</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Fanta / Lemonsoda 33&nbsp;cl</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Arancia amara 33&nbsp;cl</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Tonica Schweppes 33&nbsp;cl</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Thé limone / pesca 33&nbsp;cl</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Cérès 33&nbsp;cl</span><span>€4.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Moretti Zero 33&nbsp;cl</span><span>€3.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Weissebier Franziskaner 50&nbsp;cl</span><span>€5.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Weissebier Franziskaner Rossa 50&nbsp;cl</span><span>€5.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Moretti 66&nbsp;cl</span><span>€5.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Crodino</span><span>€3.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Campari / Spritz</span><span>€4.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Caffè espresso</span><span>€1.50</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Caffè corretto / orzo / deca</span><span>€2.00</span></li>
+      <li class="d-flex justify-content-between border-bottom py-1"><span>Coperto</span><span>€2.50</span></li>
+    </ul>
+  </div>
+</section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="py-4 text-center small text-secondary border-top border-light-subtle px-3">
+    <div class="container">© 2025 Ristorante Bambù – All Rights Reserved.</div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({duration:900,once:true});
+
+    /* Scroll-spy attivo link nella barra categorie */
+    const catLinks=document.querySelectorAll('#catNav a');
+    const sections=[...catLinks].map(l=>document.querySelector(l.getAttribute('href')));
+    window.addEventListener('scroll',()=>{
+      const scrollPos=window.scrollY+90; // offset nav
+      sections.forEach((sec,i)=>{
+        if(scrollPos>=sec.offsetTop && scrollPos<sec.offsetTop+sec.offsetHeight){
+          catLinks.forEach(l=>l.classList.remove('active'));
+          catLinks[i].classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
