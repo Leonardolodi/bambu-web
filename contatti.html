@@ -18,46 +18,45 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
+  
   <style>
     :root{
-      --bs-primary:#b0ff00;        /* verde lime */
-      --glass-bg:rgba(255,255,255,.08);
-      --glass-brd:rgba(255,255,255,.2);
+      --bs-primary:#b0ff00;                 /* verde lime */
+      --bs-primary-rgb:176,255,0;
+      --glass-bg:rgba(255,255,255,.07);
+      --glass-brd:rgba(255,255,255,.17);
     }
     body{
-      font-family:'Poppins',sans-serif;
+      font-family:"Poppins",sans-serif;
       background:linear-gradient(135deg,#0a0a0f 0%,#101018 50%,#0f0f16 100%);
-      color:#e0e0e0;
+      color:#dedede;
+      scroll-behavior:smooth;
     }
-    /* navbar translucida */
+
+    /* ------------------ COMPONENTI BASE ------------------ */
     .navbar-glass{
       background:var(--glass-bg);
       border-bottom:1px solid var(--glass-brd);
       backdrop-filter:blur(14px);
     }
-    /* titoli lime */
-    h1,h2,h3,h4{
-      color:var(--bs-primary);
-      font-weight:600;
+    .btn-lime{
+      --bs-btn-bg:var(--bs-primary);
+      --bs-btn-color:#000;
+      --bs-btn-hover-bg:#d4ff4d;
+      --bs-btn-hover-color:#000;
     }
-    /* card glassmorphism */
     .glass-card{
       background:var(--glass-bg);
       border:1px solid var(--glass-brd);
       border-radius:1rem;
       backdrop-filter:blur(12px);
     }
-    /* icone lime circolari */
     .icon-circle{
-      width:64px;height:64px;
-      border-radius:50%;
+      width:64px;height:64px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      background:var(--bs-primary);
-      color:#000;
-      font-size:1.7rem;
+      background:var(--bs-primary);color:#000;font-size:1.7rem;
       box-shadow:0 0 18px 0 var(--bs-primary);
     }
-    /* input / textarea */
     .form-control,
     .form-select{
       background:rgba(255,255,255,.05);
@@ -65,215 +64,227 @@
       color:#fff;
     }
     .form-control:focus{
-      box-shadow:0 0 0 .25rem rgba(176,255,0,.25);
       border-color:var(--bs-primary);
+      box-shadow:0 0 0 .25rem rgba(var(--bs-primary-rgb),.25);
     }
-    /* map wrapper height */
     #map-holder{min-height:400px;}
+
+    /* ------------------ HERO ------------------ */
+    .hero-banner{
+      height:60vh;
+      background:url("https://placehold.co/1600x900?text=Contatti+Hero") center/cover no-repeat;
+      position:relative;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;
+    }
+    .hero-banner::after{
+      content:"";position:absolute;inset:0;
+      background:rgba(0,0,0,.65);
+    }
+    .hero-banner *{z-index:2}
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav">
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <!-- ============ NAVBAR ============ -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark navbar-glass sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html"><img src="images/Logo _bambú-t.png" width="160px" class="img-fluid" alt=""></a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><i class="bi bi-list" style="font-size: 2.5em;"></i></button>
+      <a class="navbar-brand fw-bold" href="index.html">
+        <img src="images/Logo _bambú-t.png" width="160" alt="Logo">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="bi bi-list fs-1"></i>
+      </button>
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav ms-auto gap-lg-3">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="chisiamo.html">Chi Siamo</a></li>
-          <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
           <li class="nav-item"><a class="nav-link" href="steakhouse.html">Steakhouse</a></li>
           <li class="nav-item"><a class="nav-link" href="affittacamere.html">Affittacamere</a></li>
-          <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Contatti</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-
-<!-- ================= HERO ================= -->
-<header class="py-7" style="padding-top:8rem!important">
-  <div class="container text-center" data-aos="fade-down">
-    <h1 class="display-4 mb-3">Contattaci</h1>
+  <!-- ============ HERO ============ -->
+  <header class="hero-banner rellax" data-rellax-speed="-4">
+    <h1 class="display-4 fw-bold"><span class="text-primary">Contattaci</span></h1>
     <p class="lead mx-auto" style="max-width:640px">
-      Che si tratti di prenotare un tavolo, organizzare una festa o iniziare una nuova avventura
-      lavorativa, siamo qui per te!
+      Prenota un tavolo, organizza un evento o inviaci la tua candidatura: ti risponderemo al più presto!
     </p>
-  </div>
-</header>
+    <a href="#general-contact" class="btn btn-lime btn-lg mt-2">Scrivici ora</a>
+  </header>
 
-<!-- ================= INFO RAPIDE ================= -->
-<section class="py-5">
-  <div class="container">
-    <div class="row g-4" data-aos="fade-up">
-      <!-- Tel -->
-      <div class="col-md-4">
-        <div class="glass-card p-4 h-100 text-center">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-telephone-fill"></i></div>
-          <h3>Telefono</h3>
-          <p class="mb-0"><a href="tel:+39055555555" class="link-light text-decoration-none">+39 055 555 5555</a></p>
-          <small class="text-secondary">Lun-Dom • 10-23</small>
+  <!-- ============ INFO RAPIDE ============ -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4" data-aos="fade-up">
+        <!-- Tel -->
+        <div class="col-md-4">
+          <div class="glass-card p-4 h-100 text-center">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-telephone-fill"></i></div>
+            <h3 class="h5">Telefono</h3>
+            <p class="mb-0"><a href="tel:+390551234567" class="link-light text-decoration-none">+39 055 1234567</a></p>
+            <small class="text-secondary">Lun‒Dom • 10-23</small>
+          </div>
         </div>
-      </div>
-      <!-- Email -->
-      <div class="col-md-4">
-        <div class="glass-card p-4 h-100 text-center">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-envelope-open-fill"></i></div>
-          <h3>Email</h3>
-          <p class="mb-0"><a href="mailto:info@pizzaparlor.it" class="link-light text-decoration-none">info@pizzaparlor.it</a></p>
-          <small class="text-secondary">Ti rispondiamo entro 24 h</small>
+
+        <!-- Email -->
+        <div class="col-md-4">
+          <div class="glass-card p-4 h-100 text-center">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-envelope-open-fill"></i></div>
+            <h3 class="h5">Email</h3>
+            <p class="mb-0"><a href="mailto:info@pizzaparlor.it" class="link-light text-decoration-none">info@pizzaparlor.it</a></p>
+            <small class="text-secondary">Risposta entro 24 h</small>
+          </div>
         </div>
-      </div>
-      <!-- WhatsApp -->
-      <div class="col-md-4">
-        <div class="glass-card p-4 h-100 text-center">
-          <div class="icon-circle mx-auto mb-3"><i class="bi bi-whatsapp"></i></div>
-          <h3>WhatsApp</h3>
-          <p class="mb-0"><a href="https://wa.me/39055555555" target="_blank" class="link-light text-decoration-none">Chatta ora</a></p>
-          <small class="text-secondary">Risposta rapida dalle 10 alle 23</small>
+
+        <!-- WhatsApp -->
+        <div class="col-md-4">
+          <div class="glass-card p-4 h-100 text-center">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-whatsapp"></i></div>
+            <h3 class="h5">WhatsApp</h3>
+            <p class="mb-0"><a href="https://wa.me/390551234567" target="_blank" class="link-light text-decoration-none">Chatta ora</a></p>
+            <small class="text-secondary">Risposta rapida 10-23</small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= MAPPA ================= -->
-<section class="py-5">
-  <div class="container-fluid px-0" data-aos="zoom-in">
-    <div id="map-holder" class="w-100">
-      <!-- ⚠️ Sostituisci src con la tua mappa o lat/lng -->
-      <iframe
-        title="mappa"
-        src="https://maps.google.com/maps?q=Roma&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
+  <!-- ============ MAPPA ============ -->
+  <section class="py-5">
+    <div class="container-fluid px-0" data-aos="zoom-in">
+      <div id="map-holder" class="w-100">
+        <iframe
+          title="mappa"
+          src="https://maps.google.com/maps?q=Via%20della%20Pizza%20123%2C%20Roma&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= FORM GENERALE CONTATTO ================= -->
-<section id="general-contact" class="py-5">
-  <div class="container">
-    <div class="row justify-content-center" data-aos="fade-up">
-      <div class="col-lg-8">
-        <div class="glass-card p-5">
-          <h2 class="mb-4 text-center">Scrivici un messaggio</h2>
+  <!-- ============ FORM CONTATTO GENERALE ============ -->
+  <section id="general-contact" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center" data-aos="fade-up">
+        <div class="col-lg-8">
+          <div class="glass-card p-5">
+            <h2 class="mb-4 text-center">Scrivici un messaggio</h2>
 
-          <form class="needs-validation" novalidate>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Nome *</label>
-                <input type="text" class="form-control" required>
-                <div class="invalid-feedback">Inserisci il nome.</div>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nome *</label>
+                  <input type="text" class="form-control" required>
+                  <div class="invalid-feedback">Inserisci il nome.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email *</label>
+                  <input type="email" class="form-control" required>
+                  <div class="invalid-feedback">Email non valida.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Messaggio *</label>
+                  <textarea rows="4" class="form-control" required></textarea>
+                  <div class="invalid-feedback">Scrivi qualcosa!</div>
+                </div>
               </div>
-              <div class="col-md-6">
+              <div class="text-center pt-4">
+                <button class="btn btn-lime btn-lg px-4" type="submit">Invia richiesta</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ORGANIZZA EVENTO ============ -->
+  <section id="eventi" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <img src="https://placehold.co/680x460?text=Evento+Privato" alt="Evento" class="img-fluid rounded-4 shadow-lg">
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <h2 class="mb-3">Organizza un evento con noi</h2>
+          <p class="mb-4">Compleanni, lauree, cene aziendali o degustazioni private: mettiamo il nostro locale e il nostro staff al tuo servizio.</p>
+
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Menu personalizzati</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Capienza fino a 120 persone</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Impianto audio-video incluso</li>
+          </ul>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="tel:+390551234567" class="btn btn-lime"><i class="bi bi-telephone me-1"></i>Chiama ora</a>
+            <a href="mailto:eventi@pizzaparlor.it" class="btn btn-outline-light"><i class="bi bi-envelope me-1"></i>Email eventi</a>
+            <a href="https://wa.me/390551234567?text=Vorrei%20organizzare%20un%20evento" target="_blank" class="btn btn-outline-light"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAVORA CON NOI ============ -->
+  <section id="careers" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center flex-row-reverse">
+        <div class="col-lg-6" data-aos="fade-left">
+          <img src="https://placehold.co/680x460?text=Lavora+con+Noi" alt="Team" class="img-fluid rounded-4 shadow-lg">
+        </div>
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="mb-3">Lavora con noi</h2>
+          <p class="mb-4">Cerchiamo persone appassionate: pizzaioli, camerieri, bartender e stagisti in sala.</p>
+
+          <div class="glass-card p-4">
+            <h4 class="text-center mb-3">Invia la tua candidatura</h4>
+            <form class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label class="form-label">Nome e Cognome *</label>
+                <input type="text" class="form-control" required>
+                <div class="invalid-feedback">Campo obbligatorio.</div>
+              </div>
+              <div class="mb-3">
                 <label class="form-label">Email *</label>
                 <input type="email" class="form-control" required>
                 <div class="invalid-feedback">Email non valida.</div>
               </div>
-              <div class="col-12">
-                <label class="form-label">Messaggio *</label>
-                <textarea rows="4" class="form-control" required></textarea>
-                <div class="invalid-feedback">Scrivi qualcosa!</div>
+              <div class="mb-3">
+                <label class="form-label">Posizione desiderata *</label>
+                <select class="form-select" required>
+                  <option value="">Seleziona…</option>
+                  <option>Pizzaiolo/a</option>
+                  <option>Cameriere/a</option>
+                  <option>Bartender</option>
+                  <option>Stage in sala</option>
+                  <option>Altro</option>
+                </select>
+                <div class="invalid-feedback">Scegli una posizione.</div>
               </div>
-            </div>
+              <div class="mb-3">
+                <label class="form-label">Presentazione</label>
+                <textarea rows="4" class="form-control"></textarea>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-lime px-4" type="submit">Invia CV</button>
+              </div>
+            </form>
+          </div>
 
-            <div class="text-center pt-4">
-              <button class="btn btn-lg btn-primary px-4" type="submit">Invia richiesta</button>
-            </div>
-          </form>
-
+          <p class="mt-4 small text-secondary text-center">
+            Oppure scrivi a
+            <a href="mailto:hr@pizzaparlor.it" class="link-light text-decoration-none">hr@pizzaparlor.it</a>
+          </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ================= ORGANIZZA EVENTO ================= -->
-<section id="eventi" class="py-5">
-  <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-lg-6" data-aos="fade-right">
-        <img src="https://placehold.co/680x460?text=Evento+Privato" alt="Evento" class="img-fluid rounded-4 shadow-lg">
-      </div>
-      <div class="col-lg-6" data-aos="fade-left">
-        <h2 class="mb-3">Organizza un evento con noi</h2>
-        <p class="mb-4">Compleanni, lauree, cene aziendali o degustazioni private: mettiamo il nostro locale e il nostro staff
-          al tuo servizio per creare ricordi… e pizza… indimenticabili!</p>
-
-        <ul class="list-unstyled mb-4">
-          <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i>Menu personalizzati</li>
-          <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i>Capienza fino a 120 persone</li>
-          <li class="mb-2"><i class="bi bi-check-circle me-2 text-primary"></i>Impianto audio-video incluso</li>
-        </ul>
-
-        <div class="d-flex flex-wrap gap-3">
-          <a href="tel:+39055555555" class="btn btn-primary"><i class="bi bi-telephone me-2"></i>Chiama ora</a>
-          <a href="mailto:eventi@pizzaparlor.it" class="btn btn-outline-light"><i class="bi bi-envelope me-2"></i>Email eventi</a>
-          <a href="https://wa.me/39055555555?text=Vorrei%20organizzare%20un%20evento" target="_blank" class="btn btn-outline-light"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LAVORA CON NOI ================= -->
-<section id="careers" class="py-5">
-  <div class="container">
-    <div class="row g-4 align-items-center flex-row-reverse">
-      <div class="col-lg-6" data-aos="fade-left">
-        <img src="https://placehold.co/680x460?text=Lavora+con+Noi" alt="Team" class="img-fluid rounded-4 shadow-lg">
-      </div>
-      <div class="col-lg-6" data-aos="fade-right">
-        <h2 class="mb-3">Lavora con noi</h2>
-        <p class="mb-4">Cerchiamo persone appassionate che vogliano crescere in un ambiente dinamico: pizzaioli, camerieri,
-          bartender e stagisti in sala.</p>
-
-        <div class="glass-card p-4">
-          <h4 class="text-center mb-3">Invia la tua candidatura</h4>
-          <form class="needs-validation" novalidate>
-            <div class="mb-3">
-              <label class="form-label">Nome e Cognome *</label>
-              <input type="text" class="form-control" required>
-              <div class="invalid-feedback">Campo obbligatorio.</div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email *</label>
-              <input type="email" class="form-control" required>
-              <div class="invalid-feedback">Email non valida.</div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Posizione desiderata *</label>
-              <select class="form-select" required>
-                <option value="">Seleziona…</option>
-                <option>Pizzaiolo/a</option>
-                <option>Cameriere/a</option>
-                <option>Bartender</option>
-                <option>Stage in sala</option>
-                <option>Altro</option>
-              </select>
-              <div class="invalid-feedback">Scegli una posizione.</div>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Presentazione</label>
-              <textarea rows="4" class="form-control"></textarea>
-            </div>
-            <div class="text-center">
-              <button class="btn btn-primary px-4" type="submit">Invia CV</button>
-            </div>
-          </form>
-        </div>
-
-        <p class="mt-4 small text-secondary text-center">Oppure scrivi a
-          <a href="mailto:hr@pizzaparlor.it" class="link-light text-decoration-none">hr@pizzaparlor.it</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 <!-- ================= FOOTER ================= -->
 <footer class="py-4">
   <div class="container text-center small text-secondary">
