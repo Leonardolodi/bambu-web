@@ -16,22 +16,11 @@
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="assets/style.css">
+
   <style>
-    :root{
-      --bs-primary:#c6ff00;
-      --bs-primary-rgb:198,255,0;
-      --gradient-dark:linear-gradient(140deg,#0d0d0d 0%,#1a1a1a 50%,#000 100%);
-    }
-    body{font-family:'Poppins',sans-serif;background:var(--gradient-dark) fixed;color:#e2e2e2;scroll-behavior:smooth}
-    a{transition:color .2s}
-    a:hover{color:var(--bs-primary)}
-
-    /* Navbar */
-    .navbar{backdrop-filter:blur(16px) saturate(180%);background:rgba(0,0,0,.55)!important;border-bottom:1px solid rgba(255,255,255,.05)}
-    .nav-link.active{color:var(--bs-primary)!important}
-
     /* Hero */
-    .hero{height:60vh;background:url('https://placehold.co/1600x900/png?text=Menu+Hero') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center}
+    .hero{height:60vh;background:url('images/image00044.JPG') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center}
     .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.65)}
     .hero h1{z-index:2}
 
@@ -40,14 +29,6 @@
     .cat-nav a{white-space:nowrap;font-weight:500;padding:.75rem 1rem;display:inline-block;color:#e2e2e2}
     .cat-nav a:hover,.cat-nav a.active{color:var(--bs-primary)}
 
-    /* Glass Card Item */
-    .item-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.25rem;transition:transform .3s}
-    .item-card:hover{transform:translateY(-4px)}
-    .item-title{font-weight:500;color:#fff}
-    .item-price{color:var(--bs-primary);font-weight:600;white-space:nowrap}
-
-    section{padding:5rem 0}
-    section:nth-of-type(even){background:rgba(255,255,255,.02)}
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#catNav">
@@ -78,25 +59,25 @@
   <!-- CATEGORY NAV -->
   <div id="catNav" class="cat-nav overflow-auto" >
     <div class="container-fluid d-flex flex-nowrap gap-2">
-      <a href="#allergeni">Allergeni</a>
-      <a href="#vini">Vini</a>
-      <a href="#antipasti">Antipasti</a>
-      <a href="#primi">Primi</a>
-      <a href="#secondi">Secondi</a>
-      <a href="#steakhouse">Steak House</a>
-      <a href="#contorni">Contorni</a>
-      <a href="#tigelleria">Tigelleria</a>
-      <a href="#pizze-gourmet">Pizze Gourmet</a>
-      <a href="#pizze-classiche">Pizze Classiche</a>
-      <a href="#pizze-speciali">Pizze Speciali</a>
-      <a href="#tagliere-rotolo">Tagliere &amp; Rotolo</a>
-      <a href="#mezzi-calzoni">Mezzi Calzoni</a>
-      <a href="#bevande">Bevande</a>
+      <!-- <a href="#allergeni">Allergeni</a> -->
+      <a class="text-decoration-none" href="#vini">Vini</a>
+      <a class="text-decoration-none" href="#antipasti">Antipasti</a>
+      <a class="text-decoration-none" href="#primi">Primi</a>
+      <a class="text-decoration-none" href="#secondi">Secondi</a>
+      <a class="text-decoration-none" href="#steakhouse">Steak House</a>
+      <a class="text-decoration-none" href="#contorni">Contorni</a>
+      <a class="text-decoration-none" href="#tigelleria">Tigelleria</a>
+      <a class="text-decoration-none" href="#pizze-gourmet">Pizze Gourmet</a>
+      <a class="text-decoration-none" href="#pizze-classiche">Pizze Classiche</a>
+      <a class="text-decoration-none" href="#pizze-speciali">Pizze Speciali</a>
+      <a class="text-decoration-none" href="#tagliere-rotolo">Tagliere &amp; Rotolo</a>
+      <a class="text-decoration-none" href="#mezzi-calzoni">Mezzi Calzoni</a>
+      <a class="text-decoration-none" href="#bevande">Bevande</a>
     </div>
   </div>
 
   <!-- SECTION ALLERGENI -->
-<section id="allergeni" class="px-3" style="scroll-margin: 150px;">
+<!-- <section id="allergeni" class="px-3" style="scroll-margin: 150px;">
   <div class="container">
     <div class="row justify-content-center" data-aos="fade-up">
       <div class="col-lg-8">
@@ -114,10 +95,10 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- SECTION VINI (versione pulita) -->
-<section id="vini" class="px-3" style="scroll-margin:150px;">
+<section id="vini" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-wine me-2 text-primary"></i>Carta Vini
@@ -240,7 +221,7 @@
 
 
  <!-- SECTION ANTIPASTI (versione pulita) -->
-<section id="antipasti" class="px-3" style="scroll-margin:150px;">
+<section id="antipasti" class="px-3 py-5 bg-light text-dark" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-egg-fried me-2 text-primary"></i>Antipasti
@@ -285,10 +266,10 @@
 
 
 <!-- SECTION PRIMI (versione pulita) -->
-<section id="primi" class="px-3" style="scroll-margin:150px;">
+<section id="primi" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
-      <i class="bi bi-bowl-hot me-2 text-primary"></i>Primi Piatti
+      <i class="bi bi-hot me-2 text-primary"></i>Primi Piatti
     </h2>
 
     <ul class="list-unstyled" data-aos="fade-up">
@@ -334,7 +315,7 @@
 
 
   <!-- SECTION SECONDI (versione pulita) -->
-<section id="secondi" class="px-3" style="scroll-margin:150px;">
+<section id="secondi" class="px-3 py-5 bg-light text-dark" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-knife me-2 text-primary"></i>Secondi Piatti
@@ -392,7 +373,7 @@
 
 
 <!-- SECTION STEAK HOUSE (versione pulita) -->
-<section id="steakhouse" class="px-3" style="scroll-margin:150px;">
+<section id="steakhouse" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-flame me-2 text-primary"></i>Steak&nbsp;House
@@ -422,7 +403,7 @@
 </section>
 
 <!-- SECTION CONTORNI (versione pulita) -->
-<section id="contorni" class="px-3" style="scroll-margin:150px;">
+<section id="contorni" class="px-3 py-5 bg-light text-dark" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-basket2 me-2 text-primary"></i>Contorni
@@ -449,7 +430,7 @@
 </section>
 
 <!-- SECTION TIGELLERIA (versione pulita) -->
-<section id="tigelleria" class="px-3" style="scroll-margin:150px;">
+<section id="tigelleria" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-disc me-2 text-primary"></i>Tigelleria &amp; Gnoccheria
@@ -479,7 +460,7 @@
       </li>
     </ul>
 
-    <p class="text-center mt-4 small text-secondary" data-aos="fade-up">
+    <p class="text-center mt-4 small text-light" data-aos="fade-up">
       Aggiunta salse €1 &nbsp;–&nbsp; Piatto salumi misti €8
     </p>
   </div>
@@ -487,7 +468,7 @@
 
 
   <!-- SECTION PIZZE GOURMET (versione pulita) -->
-<section id="pizze-gourmet" class="px-3" style="scroll-margin:150px;">
+<section id="pizze-gourmet" class="px-3 py-5 text-dark bg-light" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-star me-2 text-primary"></i>Pizze Gourmet
@@ -536,7 +517,7 @@
 
 
 <!-- SECTION Pizze Classiche (versione pulita) -->
-<section id="pizze-classiche" class="px-3" style="scroll-margin:150px;">
+<section id="pizze-classiche" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-disc-fill me-2 text-primary"></i>Pizze Classiche
@@ -601,7 +582,7 @@
 
 
 <!-- SECTION Pizze Speciali (versione pulita) -->
-<section id="pizze-speciali" class="px-3" style="scroll-margin:150px;">
+<section id="pizze-speciali" class="px-3 py-5 bg-light text-dark" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-fire me-2 text-primary"></i>Pizze Speciali
@@ -641,7 +622,7 @@
 
 
 <!-- SECTION Pizza Tagliere & Rotolo (versione pulita) -->
-<section id="tagliere-rotolo" class="px-3" style="scroll-margin:150px;">
+<section id="tagliere-rotolo" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-layout-split me-2 text-primary"></i>Pizza Tagliere &amp; Rotolo
@@ -684,7 +665,7 @@
 
 
 <!-- SECTION Mezzi Calzoni (versione pulita) -->
-<section id="mezzi-calzoni" class="px-3" style="scroll-margin:150px;">
+<section id="mezzi-calzoni" class="px-3 py-5 bg-light text-dark" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-person-lines-fill me-2 text-primary"></i>Mezzi&nbsp;Calzoni
@@ -709,7 +690,7 @@
 
 
 <!-- SECTION Bevande (versione pulita) -->
-<section id="bevande" class="px-3" style="scroll-margin:150px;">
+<section id="bevande" class="px-3 py-5" style="scroll-margin:150px;">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">
       <i class="bi bi-cup-straw me-2 text-primary"></i>Bevande
@@ -745,12 +726,155 @@
   </div>
 </section>
 
+<!-- SECTION – AFFITTACAMERE INTRO -->
+<section id="affittacamere-intro" class="border-bottom border-2 border-primary py-5 px-3 overflow-hidden position-relative bg-light">
+
+  <div class="container position-relative">
+    <div class="row g-5 align-items-center">
+
+      <!-- Immagine / slider singola -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="images/camera.png"
+             alt="Camere Bambù" class="img-fluid rounded-4 shadow-lg">
+      </div>
+
+      <!-- Testo + bullet + CTA -->
+      <div class="col-lg-6 text-dark" data-aos="fade-left">
+        <h1 class="fw-bold mb-3"><span class="bg-dark text-light px-2">
+          Soggiorna da noi</span>
+        </h1>
+        <p class="mb-4">
+          Dopo aver assaggiato le nostre pizze gourmet, non correre via: sali di un piano
+          e scopri le <strong>Camere Bambù</strong>. Spazi contemporanei, domotica smart
+          e tutti i comfort di un boutique hotel, a pochi passi dal centro storico.
+        </p>
+
+        <ul class="list-unstyled mb-4 fw-bold">
+          <li class="d-flex mb-2"><i class="bi bi-wifi text-dark me-2"></i>Wi-Fi ultra-veloce</li>
+          <li class="d-flex mb-2"><i class="bi bi-cup-hot text-dark me-2"></i>Colazione artigianale inclusa</li>
+          <li class="d-flex mb-2"><i class="bi bi-tv text-dark me-2"></i>Smart-TV 43”</li>
+          <li class="d-flex"><i class="bi bi-lock text-dark me-2"></i>Accesso con codice 24/7</li>
+        </ul>
+
+        <a href="affittacamere.html" class="btn btn-lg btn-lime">
+          Scopri le camere <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- SECTION – CONTATTI TEASER -->
+<section id="contact-teaser" class="py-5 bg-light px-3 position-relative overflow-hidden">
+  <!-- sfondo lime leggerissimo a “mesh” -->
 
 
-  <!-- FOOTER -->
-  <footer class="py-4 text-center small text-secondary border-top border-light-subtle px-3">
-    <div class="container">© 2025 Ristorante Bambù – All Rights Reserved.</div>
-  </footer>
+  <div class="container position-relative">
+    <div class="row g-5 align-items-center flex-lg-row-reverse">
+
+        <!-- Immagine dedicata -->
+      <div class="col-lg-6" data-aos="fade-up">
+        <img src="images/image00005.JPG" alt="Contattaci"
+             class="img-fluid rounded-4 shadow-lg">
+      </div>
+
+      <!-- Testo + CTA -->
+      <div class="col-lg-6 text-dark" data-aos="fade-up">
+        <h1 class="fw-bold mb-3 text-dark"><span class="bg-dark text-light px-2">
+          Domande? Contattaci</span>
+        </h1>
+        <p class="mb-4">
+          Prenotazioni, eventi privati o collaborazioni: il nostro team risponde
+          sempre con rapidità (entro 24&nbsp;h) e un sorriso.
+        </p>
+
+        <ul class="list-unstyled mb-4">
+          <li class="d-flex mb-2"><i class="bi bi-telephone-fill text-primary me-2"></i>+39&nbsp;055&nbsp;123&nbsp;4567 (10-23)</li>
+          <li class="d-flex mb-2"><i class="bi bi-whatsapp text-primary me-2"></i>WhatsApp rapido</li>
+          <li class="d-flex"><i class="bi bi-envelope-fill text-primary me-2"></i>info@pizzaparlor.it</li>
+        </ul>
+
+        <a href="contatti.html" class="btn btn-lg btn-lime">
+          Vai alla pagina Contatti <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-5 px-3">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Brand -->
+      <div class="col-md-4">
+        <h4 class="fw-bold text-primary">Ristorante Bambù</h4>
+        <p class="">Cucina creativa, ingredienti premium, camere accoglienti. Ti aspettiamo per un’esperienza unica!</p>
+          <div class="mt-3">
+          <a href="#" class="text-light me-3 fs-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3 fs-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light fs-3"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Link Utili -->
+      <div class="col-md-2">
+        <h5 class="fw-semibold mb-3 text-primary">Link Utili</h5>
+        <ul class="list-unstyled ">
+          <li><a href="#menu" class="text-decoration-none text-light">Il Menù</a></li>
+          <li><a href="#affittacamere" class="text-decoration-none text-light">Affittacamere</a></li>
+          <li><a href="#contatti" class="text-decoration-none text-light">Contatti</a></li>
+          <li><a href="#prenota" class="text-decoration-none text-light">Prenota Ora</a></li>
+        </ul>
+      </div>
+
+      <!-- Link Utili -->
+      <div class="col-md-3">
+        <h5 class="fw-semibold mb-3 text-primary">Link Utili</h5>
+        <ul class="list-unstyled ">
+          <li><a href="#menu" class="text-decoration-none text-light">Il Menù</a></li>
+          <li><a href="#affittacamere" class="text-decoration-none text-light">Affittacamere</a></li>
+          <li><a href="#contatti" class="text-decoration-none text-light">Contatti</a></li>
+          <li><a href="#prenota" class="text-decoration-none text-light">Prenota Ora</a></li>
+        </ul>
+      </div>
+
+      <!-- Contatti -->
+      <div class="col-md-3">
+        <h5 class="fw-semibold mb-3 text-primary">Contatti</h5>
+        <p class=" mb-1"><i class="bi bi-geo-alt-fill me-2 text-lime"></i>Via della Pizza 123, Roma</p>
+        <p class=" mb-1"><i class="bi bi-telephone-fill me-2 text-lime"></i>+39 06 1234567</p>
+        <p class=" mb-1"><i class="bi bi-envelope-fill me-2 text-lime"></i>info@pizzaparlor.it</p>
+      </div>
+
+    </div>
+
+  </div>
+  
+</footer>
+<section class="bg-primary">
+    <div class="container py-4">
+      <div class="row text-center text-md-start align-items-center">
+      <div class="col-12 col-md">
+        <ul class="nav justify-content-center justify-content-md-start gap-3">
+          <li class="nav-item"><a class="nav-link px-0  text-dark " href="#">Chi Siamo</a></li>
+          <li class="nav-item"><a class="nav-link px-0  text-dark " href="#">Menu</a></li>
+          <li class="nav-item"><a class="nav-link px-0  text-dark " href="#">Camere</a></li>
+          <li class="nav-item"><a class="nav-link px-0  text-dark mb-0" href="#">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-md-auto text-md-end text-dark">
+        © 2025 Bambù • <span class="text-dark fw-bold">leonardolodi.dev</span>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
