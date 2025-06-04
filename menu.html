@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menù – Ristorante Bambù Neon Lime</title>
+  <title>Menù - Bambù - Ristorante - Pizzeria - Affittacamere - Poggio Rusco - Mantova</title>
 
+      <link rel="icon" type="image/png" href="images/Logo _bambú.png">
+
+    
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap 5 CSS -->
@@ -29,6 +32,11 @@
     .cat-nav a{white-space:nowrap;font-weight:500;padding:.75rem 1rem;display:inline-block;color:#e2e2e2}
     .cat-nav a:hover,.cat-nav a.active{color:var(--bs-primary)}
 
+     @media screen and (max-width: 768px) {
+      .hero{
+        height: 400px;
+      }
+    }
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#catNav">
@@ -43,8 +51,8 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="chisiamo.html">Chi Siamo</a></li>
           <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="steakhouse.html">Steakhouse</a></li>
-          <li class="nav-item"><a class="nav-link" href="affittacamere.html">Affittacamere</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Steakhouse</a></li>
+          <li class="nav-item"><a class="nav-link" href="affittacamere.html">Camere</a></li>
           <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
         </ul>
       </div>
@@ -866,6 +874,28 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Bottoncino WhatsApp sticky -->
+<a href="#" 
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chatta su WhatsApp">
+ <i class="bi bi-whatsapp"></i>
+</a>
+
+<script>
+  document.addEventListener('scroll',()=>{
+    const btn = document.querySelector('.whatsapp-float');
+    if(window.scrollY > 200){
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    }else{
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+    }
+  });
+  </script>
 
   <script>
     AOS.init({duration:900,once:true});

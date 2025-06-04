@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza Parlor – Neon Lime</title>
+  <title>Bambù - Ristorante - Pizzeria - Affittacamere - Poggio Rusco - Mantova</title>
 
+      <link rel="icon" type="image/png" href="images/Logo _bambú_bianco.png">
+
+    
   <!-- Google Font: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -54,6 +57,11 @@
     .hero p,
     .hero .btn{z-index:2}
 
+      @media screen and (max-width: 768px) {
+      .hero{
+        height: 580px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -68,7 +76,7 @@
           <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="chisiamo.html">Chi Siamo</a></li>
           <li class="nav-item"><a class="nav-link " href="menu.html">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="steakhouse.html">Steakhouse</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Steakhouse</a></li>
           <li class="nav-item"><a class="nav-link" href="affittacamere.html">Camere</a></li>
           <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
         </ul>
@@ -93,12 +101,12 @@
     Un’esperienza con ingredienti premium 100 % italiani e creatività senza limiti.
   </p>
   
-  <a href="#menu" class="btn btn-lg btn-lime">Esplora il Menu<i class="bi bi-arrow-right ms-1"></i></a>
+  <a href="#about" class="btn btn-lg btn-lime">Scopri il Bambù<i class="bi bi-arrow-right ms-1"></i></a>
 </header>
 
 
   <!-- ==================== ABOUT ==================== -->
-  <section id="about" class="py-5 px-3 bg-light">
+  <section id="about" class="py-5 px-3 bg-light" style="scroll-margin:150px;">
     <div class="container">
       <div class="row align-items-center g-md-5 g-0">
         <div class="col-lg-6" data-aos="fade-up">
@@ -123,7 +131,7 @@
               </div>
             </div>
           </div> -->
-          <a href="#menu" class="btn btn-lg btn-lime">Chi Siamo<i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="chisiamo.html" class="btn btn-lg btn-lime">Chi Siamo<i class="bi bi-arrow-right ms-1"></i></a>
         </div>
       </div>
     </div>
@@ -195,8 +203,8 @@
             <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Ricette originali in continua evoluzione</span></li>
             <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Impegno per la sostenibilità ambientale</span></li>
           </ul>
-          <a href="#menu" class="btn btn-lg btn-lime me-2">Menu<i class="bi bi-arrow-right ms-1"></i></a>
-          <a href="#menu" class="btn btn-lg btn-outline-light">Steakhouse<i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="menu.html" class="btn btn-lg btn-lime me-2">Menu<i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="https://menu-carni-bambu.netlify.app/" class="btn btn-lg btn-outline-light">Steakhouse<i class="bi bi-arrow-right ms-1"></i></a>
         </div>
       </div>
     </div>
@@ -360,6 +368,28 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Bottoncino WhatsApp sticky -->
+<a href="#" 
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chatta su WhatsApp">
+ <i class="bi bi-whatsapp"></i>
+</a>
+
+<script>
+  document.addEventListener('scroll',()=>{
+    const btn = document.querySelector('.whatsapp-float');
+    if(window.scrollY > 200){
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    }else{
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+    }
+  });
+  </script>
 
   <script>
     // AOS init
