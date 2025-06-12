@@ -21,7 +21,7 @@
 
     
 
-    .btn-lime{--bs-btn-bg:var(--bs-primary);--bs-btn-border-color:transparent;--bs-btn-hover-bg:#333333;--bs-btn-hover-border-color:transparent;color:#000;}
+    .btn-lime{--bs-btn-bg:var(--bs-primary);--bs-btn-border-color:transparent;--bs-btn-hover-bg:#b0b0b0;--bs-btn-hover-border-color:transparent;color:#000;}
 
 
     /* ===== GLASS CARD ===== */
@@ -33,6 +33,9 @@
       color: #97c100 !important;
     }
 
+    .text-lime{
+      color: #85aa00 !important;
+    }
 /* palette scura con texture leggera */
 .footer-dark{
   background:#1b1b1b url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+YIEg8LG3rkHG4AAAAKSURBVAjXY2AAAAACAAHiIbwzAAAAAElFTkSuQmCC") repeat;
@@ -84,4 +87,12 @@
     .whatsapp-float:hover{
       opacity:.85;
       text-decoration:none;
+    }
+
+    a{
+      text-decoration-color: #97c100;
+      color: #0d0d0d;
+    }
+    footer a{
+      color: #f7f7f7;
     }

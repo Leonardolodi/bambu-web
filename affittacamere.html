@@ -35,11 +35,11 @@
     .contact-card{transition:transform .3s}
     .contact-card:hover{transform:translateY(-4px)}
 
-    /* Form styling */
-    .form-control{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);color:#fff}
-    .form-control::placeholder{color:#bbb}
-    .form-control:focus{color:#fff;background:rgba(255,255,255,.07);border-color:var(--bs-primary);box-shadow:0 0 0 .25rem rgba(var(--bs-primary-rgb),.25)}
-    .form-label{color:#ccc}
+ /* Form styling */
+    .form-control{background:rgba(233, 233, 233, 0.07);border:1px solid rgba(57, 57, 57, 0.18);color:#9d9d9d}
+    .form-control::placeholder{color:#626262}
+    .form-control:focus{color:#414141;background:rgba(255,255,255,.07);border-color:var(--bs-primary);box-shadow:0 0 0 .25rem rgba(var(--bs-primary-rgb),.25)}
+    .form-label{color:#434343}
     .btn-lime{--bs-btn-bg:var(--bs-primary);--bs-btn-border-color:transparent;--bs-btn-hover-bg:#d4ff4d;--bs-btn-hover-border-color:transparent;color:#000;}
   
     /* === Swiper controls in lime ==================================== */
@@ -107,7 +107,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html"><img src="images/Logo _bambú-t.png" width="160px" class="img-fluid" alt=""></a>
+      <a class="navbar-brand fw-bold" href="index.html"><img src="images/Logo _bambú-t.png" width="140px" class="img-fluid" alt=""></a>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><i class="bi bi-list" style="font-size: 2.5em;"></i></button>
       <div class="collapse navbar-collapse" id="navMain">
         <ul class="navbar-nav ms-auto gap-lg-3">
@@ -123,45 +123,50 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero d-flex justify-content-center text-center px-3">
-    <h1 class="display-3 fw-bold text-uppercase"><span class="text-primary">Soggiorna</span> con Noi</h1>
+  <header class="hero d-flex justify-content-center px-3">
+    <div class="container text-left" style="z-index: 2;">
+      <!-- Contenuto testuale -->
+        <h1 class="fw-bold text-uppercase px-3"><span class="text-primary">Le camere,</span> Comfort <span class="text-primary">essenziale e accogliente,</span> pensate per chi viaggia per lavoro e cerca <span class="text-primary">funzionalità</span>.</h1>
+      </div>
   </header>
 
 <!-- SECTION – GALLERY AFFITTACAMERE (slider singolo) -->
-<section id="camere-gallery" class="py-5 px-3 text-dark bg-light" style="background:#0d0d0d;scroll-margin-top:100px;">
-  <div class="container-fluid">
+<section id="camere-gallery" class="py-5 px-3 text-dark bg-light  border-bottom border-2 border-primary" style="background:#0d0d0d;scroll-margin-top:100px;">
+  <div class="container">
     <div class="row g-0 g-md-5 align-items-center d-flex justify-content-center">
 
       <!-- DESCRIZIONE / CONTATTI -->
-      <div class="col-lg-4" data-aos="fade-up">
-        <h1 class="fw-bold mb-3"><span class="bg-dark text-light px-2">Le nostre camere</h1></span>
+      <div class="col-lg-6" data-aos="fade-up">
+        <h1 class="fw-bold mb-3">Le nostre <span class="text-lime">camere</h1></span>
 
         <p class="mb-4">
-          Ambienti moderni, luce naturale e cura dei dettagli: il rifugio perfetto dopo una cena Bambù.
+          Le nostre <strong>camere</strong> sono la soluzione ideale per chi <strong>viaggia per lavoro</strong> e desidera una sistemazione <strong>funzionale</strong>, <strong>comoda</strong> e <strong>strategicamente collegata</strong>. Offriamo <strong>ambienti semplici</strong> ma <strong>curati</strong>, dotati di tutti i <strong>servizi essenziali</strong> per garantire un <strong>soggiorno pratico</strong> e <strong>piacevole</strong>, all’insegna della tranquillità.
+        </p>
+        <p class="mb-4">
+          Pensate per rispondere alle esigenze delle aziende e dei professionisti, le nostre <strong>convenzioni aziendali personalizzate</strong> includono anche <strong>pranzo</strong> e <strong>cena</strong> presso il nostro <strong>ristorante</strong>. Un’unica formula che unisce <strong>efficienza</strong>, <strong>ospitalità</strong> e gusto, in un contesto familiare e professionale.
         </p>
 
+
         <ul class="list-unstyled mb-4">
-          <li class="d-flex mb-2"><i class="bi bi-wifi text-primary me-2"></i>Wi-Fi ultra-veloce</li>
-          <li class="d-flex mb-2"><i class="bi bi-cup-hot text-primary me-2"></i>Colazione artigianale inclusa</li>
-          <li class="d-flex mb-2"><i class="bi bi-lock text-primary me-2"></i>Accesso smart 24/7</li>
-          <li class="d-flex"><i class="bi bi-geo-alt text-primary me-2"></i>Centro storico a 200&nbsp;m</li>
+          <li class="d-flex"><i class="bi bi-lock text-dark me-2"></i>Climatizzazione e riscaldamento</li>
+          <li class="d-flex mb-2"><i class="bi bi-wifi text-dark me-2"></i>Wi-Fi e smart-tv</li>
         </ul>
 
         <div class="d-flex flex-column gap-2">
-          <a href="tel:+39061234567" class="btn btn-outline-dark">
-            <i class="bi bi-telephone me-1"></i>+39&nbsp;06&nbsp;1234567
+          <a href="tel:+390386733262" class="btn btn-outline-dark">
+            <i class="bi bi-telephone me-1"></i>+39 0386 733262
           </a>
-          <a href="https://wa.me/391234567890" class="btn btn-outline-dark ">
+          <a href="https://wa.me/+393409040060" class="btn btn-outline-dark ">
             <i class="bi bi-whatsapp me-1"></i>WhatsApp
           </a>
-          <a href="mailto:camere@bambu.it" class="btn btn-lime ">
-            <i class="bi bi-envelope me-1"></i>camere@bambu.it
+          <a href="mailto:bambu2014@virgilio.it" class="btn btn-dark ">
+            <i class="bi bi-envelope me-1"></i>bambu2014@virgilio.it
           </a>
         </div>
       </div>
 
       <!-- SLIDER FOTO GRANDE -->
-      <div class="col-lg-8 pt-5 pt-md-0" data-aos="fade-up">
+      <div class="col-lg-6 pt-5 pt-md-0" data-aos="fade-up">
       <div class="container-fluid">
   <!-- Swiper -->
   <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="100">
@@ -199,14 +204,6 @@
         </div>
       </div>
 
-      <!-- Slide 5 -->
-      <div class="swiper-slide">
-        <div class="detail-hover">
-          <img src="images/camera2.png" alt="Camera 5">
-          <span class="slide-caption">Camera 5</span>
-        </div>
-      </div>
-
     </div>
 
     <!-- Swiper navigation -->
@@ -218,44 +215,18 @@
 
     </div>
   </div>
-
-    <!-- <div class="py-5 container">
-      <div class="row g-4">
-        <div class="col col-lg-4" data-aos="zoom-in">
-          <div class="card shadow p-4 h-100">
-            <div class="icon-circle mb-3"><i class="bi bi-wifi"></i></div>
-            <h6 class="fw-bold">Wi-Fi 1 Gb/s</h6>
-            <small class="text-dark">Connessione stabile e ultrarapida in tutte le aree.</small>
-          </div>
-        </div>
-        <div class="col col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="card shadow p-4 h-100">
-            <div class="icon-circle mb-3"><i class="bi bi-cup-straw"></i></div>
-            <h6 class="fw-bold">Colazione Artigianale</h6>
-            <small class="text-dark">Prodotti freschi della nostra cucina ogni mattina.</small>
-          </div>
-        </div>
-        <div class="col col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="card shadow p-4 h-100">
-            <div class="icon-circle mb-3"><i class="bi bi-geo-alt"></i></div>
-            <h6 class="fw-bold">Posizione Centrale</h6>
-            <small class="text-dark">A due passi da Colosseo e stazione Termini.</small>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </section>
 
   
   <!-- CONTACT -->
-  <section id="contact" class="position-relative overflow-hidden px-3 py-5 ">
+  <section id="contact" class="position-relative overflow-hidden bg-light px-3 py-5 text-dark  border-bottom border-2 border-primary">
     <div class="position-absolute top-0 start-0 w-100 h-100"></div>
     <div class="container position-relative">
       <!-- Contact Form -->
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
-        <h1 class="fw-bold mb-4"><span class="bg-primary text-dark px-2">Richiedi disponibilità via E-mail</span></h1>
+        <h1 class="fw-bold mb-4">Richiedi disponibilità via <span class="text-lime">E-mail</span></h1>
         <div class="col-lg-8">
-          <div class="glass-card p-3 rounded-1">
+          <div class="card bg-light p-3 rounded-1">
             <!-- <h2 class="fw-bold mb-4 text-center">Contattaci <span class="text-primary">Subito</span></h2> -->
             <form class="needs-validation" novalidate>
               <div class="row g-3">
@@ -290,30 +261,35 @@
                 </div>
               </div>
               <div class="text-center mt-4">
-                <button type="submit" class="btn btn-outline-light btn-lg px-5 w-100">Invia il Messaggio</button>
+                <button type="submit" class="btn btn-outline-dark btn-lg px-5 w-100">Invia il Messaggio</button>
               </div>
             </form>
           </div>
         </div>
         <div class="col-lg-4 pt-5 pt-md-0">
              <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.0123456789!2d11.0087654!3d45.0112345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x0000000000000000!2sPoggio%20Rusco!5e0!3m2!1sit!2sit!4v1680000000000!5m2!1sit!2sit"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.672316716636!2d11.1103498!3d44.9706518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477f99396f78dc35%3A0xf2726984f5a82c6f!2zQmFtYsO6!5e0!3m2!1sit!2sit!4v1749734434582!5m2!1sit!2sit"
       width="100%" height="420px" style="border:0;" allowfullscreen="" class="rounded-1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
   </section>
   
-  <section id="about" class="py-5 px-3 bg-light border-bottom border-2 border-primary">
+ <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="py-5 px-3 bg-light border-bottom border-2 border-primary" style="scroll-margin:150px;">
     <div class="container">
       <div class="row align-items-center g-md-5 g-0">
-        <div class="col-lg-6" data-aos="fade-up">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-up">
           <img src="images/image00006.JPG" class="img-fluid rounded-4 shadow-lg" alt="About us placeholder">
         </div>
-        <div class="col-lg-6 pt-md-0 pt-5 text-dark" data-aos="fade-up" data-aos-delay="100">
-          <h1 class="fw-bold mb-3"><span class="bg-dark text-light px-2">In Famiglia dal 1998</h1></span>
-          <p class="mb-4">Dalla classica margherita a costate e fiorentine scelte da tutta Europa, fondiamo passione e ricerca per stupirti ad ogni morso.</p>
-          <p class="mb-4">Oggi Bambù è molto più di una pizzeria: è uno spazio dove incontrarsi, degustare e perfino pernottare nelle camere sopra il locale. Continuiamo a crescere con un obiettivo semplice: servire un’esperienza memorabile, fetta dopo fetta, sorriso dopo sorriso.</p>
+        <div class="col-lg-6 pt-md-0 pt-5 order-lg-1 text-dark" data-aos="fade-up" data-aos-delay="100">
+          <h1 class="fw-bold mb-3">Qualtà, passione e Famiglia <span class="text-lime">dal 2014</h1></span>
+          <p class="mb-4">
+            Dalla classica <strong>margherita</strong> a <strong>costate</strong> e <strong>fiorentine</strong> scelte da tutta <strong>Europa</strong>, fondiamo <strong>passione</strong> e <strong>ricerca</strong> per stupirti ad ogni morso.
+          </p>
+          <p class="mb-4">
+            Oggi <strong>Bambù</strong> è molto più di una <strong>pizzeria</strong>: è uno <strong>spazio</strong> dove <strong>incontrarsi</strong>, <strong>degustare</strong> e perfino <strong>pernottare</strong> nelle <strong>camere</strong> sopra il locale. Continuiamo a crescere con un obiettivo semplice: servire un’<strong>esperienza memorabile</strong>, <strong>fetta dopo fetta</strong>, <strong>sorriso dopo sorriso</strong>.
+          </p>
 
           <!-- <div class="row text-center g-4 mb-4">
             <div class="col-6">
@@ -329,36 +305,37 @@
               </div>
             </div>
           </div> -->
-          <a href="chisiamo.html" class="btn btn-lg btn-lime">Chi Siamo<i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="chisiamo.html" class="btn btn-lg btn-dark">La nostra storia<i class="bi bi-arrow-right ms-1"></i></a>
         </div>
       </div>
     </div>
-  </section>
   
+  </section>
+
   <!-- MISSION & VALUES -->
-  <section id="mission" class="py-5 px-3 bg-light text-dark position-relative overflow-hidden border-bottom border-2 border-primary">
+  <section id="mission" class="py-5 px-3 position-relative bg-light text-dark overflow-hidden border-bottom border-2 border-primary">
   <!-- sfondo lime leggerissimo a “mesh” -->
     <div class="container">
-      <div class="row align-items-center g-md-5 g-0">
-        <div class="col-lg-6 order-lg-2" data-aos="fade-up">
+      <div class="row align-items-center d-flex justify-content-center g-md-5 g-0">
+        <div class="col-lg-5 order-lg-1" data-aos="fade-up">
           <img src="images/image00044.JPG" class="img-fluid rounded-4 shadow-lg" alt="Missione">
         </div>
-        <div class="col-lg-6 order-lg-1 pt-md-0 pt-5" data-aos="fade-up" data-aos-delay="50">
-          <h1 class="fw-bold mb-4"><span class="bg-dark text-light px-2">Il nostro Menù</span></h1>
-          <p class="mb-4">Sin dalle origini nel cuore di Roma, il nostro obiettivo è stato quello di garantire un’esperienza culinaria che unisca tradizione napoletana e sperimentazione contemporanea.</p>
-          <ul class="list-unstyled mb-4">
-            <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Ingredienti 100% Italiani e tracciabili</span></li>
-            <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Ricette originali in continua evoluzione</span></li>
-            <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-primary me-3"></i><span>Impegno per la sostenibilità ambientale</span></li>
-          </ul>
-          <a href="menu.html" class="btn btn-lg btn-lime me-2">Menu<i class="bi bi-arrow-right ms-1"></i></a>
-          <a href="#" class="btn btn-lg btn-outline-dark">Steakhouse<i class="bi bi-arrow-right ms-1"></i></a>
+        <div class="col-lg-6 order-lg-2 pt-md-0 pt-5" data-aos="fade-up" data-aos-delay="50">
+          <h1 class="fw-bold mb-4">Scopri il nostro <span class="text-lime">Menù</span></h1>
+          <p class="mb-4">
+            Un <strong>viaggio</strong> tra sapori <strong>raffinati</strong> e <strong>autentici</strong>: dal <strong>pescato del giorno</strong> alle migliori <strong>carni selezionate</strong>, passando per <strong>gnocco</strong> e <strong>tigelle</strong> reinterpretati con <strong>maestria</strong>. Ogni piatto nasce dall’incontro tra <strong>ingredienti premium</strong> e <strong>creatività senza limiti</strong>, per offrire un’<strong>esperienza gastronomica</strong> completa, <strong>originale</strong> e <strong>memorabile</strong>.
+          </p>
+
+          
+          <a href="menu.html" class="btn btn-lg btn-dark me-2">Il Menu<i class="bi bi-arrow-right ms-1"></i></a>
+          <a href="https://menu-carni-bambu.netlify.app/" class="btn btn-lg btn-outline-dark">Steakhouse<i class="bi bi-arrow-right ms-1"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- SECTION – CONTATTI TEASER -->
+
+  <!-- SECTION – CONTATTI TEASER -->
 <section id="contact-teaser" class="py-5 bg-light px-3 position-relative overflow-hidden">
   <!-- sfondo lime leggerissimo a “mesh” -->
 
@@ -366,34 +343,33 @@
   <div class="container position-relative">
     <div class="row g-5 align-items-center flex-lg-row-reverse">
 
-      
-
-      <!-- Testo + CTA -->
-      <div class="col-lg-6 text-dark" data-aos="fade-up">
-        <h1 class="fw-bold mb-3 text-dark"><span class="bg-dark text-light px-2">
-          Domande? Contattaci</span>
-        </h1>
-        <p class="mb-4">
-          Prenotazioni, eventi privati o collaborazioni: il nostro team risponde
-          sempre con rapidità (entro 24&nbsp;h) e un sorriso.
-        </p>
-
-        <ul class="list-unstyled mb-4">
-          <li class="d-flex mb-2"><i class="bi bi-telephone-fill text-primary me-2"></i>+39&nbsp;055&nbsp;123&nbsp;4567 (10-23)</li>
-          <li class="d-flex mb-2"><i class="bi bi-whatsapp text-primary me-2"></i>WhatsApp rapido</li>
-          <li class="d-flex"><i class="bi bi-envelope-fill text-primary me-2"></i>info@bambu.it</li>
-        </ul>
-
-        <a href="contatti.html" class="btn btn-lg btn-lime">
-          Vai alla pagina Contatti<i class="bi bi-arrow-right ms-1"></i>
-        </a>
-      </div>
-
         <!-- Immagine dedicata -->
       <div class="col-lg-6" data-aos="fade-up">
         <img src="images/image00009.JPG" alt="Contattaci"
              class="img-fluid rounded-4 shadow-lg">
       </div>
+
+      <!-- Testo + CTA -->
+      <div class="col-lg-6 text-dark" data-aos="fade-up">
+        <h1 class="fw-bold mb-3 text-dark">
+          Domande? <span class="text-lime">Contattaci</span>
+        </h1>
+        <p class="mb-4">
+        <strong>Prenotazioni</strong>, <strong>eventi privati</strong> o <strong>collaborazioni</strong>: il nostro <strong>team</strong> risponde sempre con <strong>rapidità</strong> e un <strong>sorriso</strong>.
+      </p>
+
+
+        <ul class="list-unstyled mb-4">
+          <li class="d-flex mb-2"><i class="bi bi-telephone-fill text-primary me-2"></i><a href="tel:+390386733262">+39&nbsp;0386&nbsp;733262&nbsp;</a></li>
+          <li class="d-flex mb-2"><i class="bi bi-whatsapp text-primary me-2"></i><a href="https://wa.me/+393409040060">340-9040060</a></li>
+          <li class="d-flex"><i class="bi bi-envelope-fill text-primary me-2"></i><a href="mailto:bambu2014@virgilio.it">bambu2014@virgilio.it</a></li>
+        </ul>
+
+        <a href="contatti.html" class="btn btn-lg btn-dark">
+          Vai alla pagina Contatti<i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+
 
 
     </div>
@@ -408,42 +384,46 @@
       <!-- Brand -->
       <div class="col-md-4">
         <h4 class="fw-bold text-primary">Ristorante Bambù</h4>
-        <p class="">Cucina creativa, ingredienti premium, camere accoglienti. Ti aspettiamo per un’esperienza unica!</p>
+        <p class="mb-4">
+          <strong>Cucina creativa</strong>, <strong>ingredienti premium</strong>, <strong>camere accoglienti</strong>: ogni dettaglio è pensato per offrirti un’<strong>esperienza unica</strong>.
+        </p>
+
           <div class="mt-3">
-          <a href="#" class="text-light me-3 fs-3"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="text-light me-3 fs-3"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="text-light fs-3"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.facebook.com/ristopizzeriabambu/?locale=it_IT" class=" me-3 fs-3"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/ristopizzeria_bambu/bambu" class=" me-3 fs-3"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/+393409040060" class=" fs-3"><i class="bi bi-whatsapp"></i></a>
         </div>
+      </div>
+
+      <!-- Link Utili -->
+      <div class="col-md-3">
+        <h5 class="fw-semibold mb-3 text-primary">Orari di Apertura</h5>
+        <p class="mb-1">LUN: 12-14 e 19-22.</p>
+        <p class="mb-1">MARTEDI: Chiuso</p>
+        <p class="mb-1">MER-VEN: 12-14 e 19-22.</p>
+        <p class="mb-1">SABATO: 19-22:30</p>
+        <p class="mb-1">DOMENICA: 12-14 e 19-22.</p>
       </div>
 
       <!-- Link Utili -->
       <div class="col-md-2">
         <h5 class="fw-semibold mb-3 text-primary">Link Utili</h5>
         <ul class="list-unstyled ">
-          <li><a href="#menu" class="text-decoration-none text-light">Il Menù</a></li>
-          <li><a href="#affittacamere" class="text-decoration-none text-light">Affittacamere</a></li>
-          <li><a href="#contatti" class="text-decoration-none text-light">Contatti</a></li>
-          <li><a href="#prenota" class="text-decoration-none text-light">Prenota Ora</a></li>
-        </ul>
-      </div>
-
-      <!-- Link Utili -->
-      <div class="col-md-3">
-        <h5 class="fw-semibold mb-3 text-primary">Link Utili</h5>
-        <ul class="list-unstyled ">
-          <li><a href="#menu" class="text-decoration-none text-light">Il Menù</a></li>
-          <li><a href="#affittacamere" class="text-decoration-none text-light">Affittacamere</a></li>
-          <li><a href="#contatti" class="text-decoration-none text-light">Contatti</a></li>
-          <li><a href="#prenota" class="text-decoration-none text-light">Prenota Ora</a></li>
+          <li><a href="index.html" class="text-decoration-none text-light">Home</a></li>
+          <li><a href="chisiamo.html" class="text-decoration-none text-light">Chi Siamo</a></li>
+          <li><a href="menu.html" class="text-decoration-none text-light">Menu</a></li>
+          <li><a href="steakhouse.html" class="text-decoration-none text-light">Steakhouse</a></li>
+          <li><a href="affittacamere.html" class="text-decoration-none text-light">Camere</a></li>
+          <li><a href="contatti.html" class="text-decoration-none text-light">Contatti</a></li>
         </ul>
       </div>
 
       <!-- Contatti -->
       <div class="col-md-3">
         <h5 class="fw-semibold mb-3 text-primary">Contatti</h5>
-        <p class=" mb-1"><i class="bi bi-geo-alt-fill me-2 text-lime"></i>Via della Pizza 123, Roma</p>
-        <p class=" mb-1"><i class="bi bi-telephone-fill me-2 text-lime"></i>+39 06 1234567</p>
-        <p class=" mb-1"><i class="bi bi-envelope-fill me-2 text-lime"></i>info@bambu.it</p>
+        <p class=" mb-1"><i class="bi bi-geo-alt-fill me-2 text-lime"></i><a href="https://maps.app.goo.gl/c6beEFz8WzoJ7yL26">Via Abetone Brennero, 153, 46025 Poggio Rusco MN</a></p>
+        <p class=" mb-1"><i class="bi bi-telephone-fill me-2 text-lime"></i><a href="tel:+390386733262">+39 0386 733262</a></p>
+        <p class=" mb-1"><i class="bi bi-envelope-fill me-2 text-lime"></i><a href="mailto:bambu2014@virgilio.it">bambu2014@virgilio.it</a></p>
       </div>
 
     </div>
@@ -453,28 +433,27 @@
 </footer>
 <section class="bg-primary">
     <div class="container py-4">
-      <div class="row text-center text-md-start align-items-center">
-      <div class="col-12 col-md">
-        <ul class="nav justify-content-center justify-content-md-start gap-3">
-          <li class="nav-item"><a class="nav-link px-0  text-dark " href="#">Chi Siamo</a></li>
-          <li class="nav-item"><a class="nav-link px-0  text-dark " href="#">Menu</a></li>
-          <li class="nav-item"><a class="nav-link px-0  text-dark " href="#">Camere</a></li>
-          <li class="nav-item"><a class="nav-link px-0  text-dark mb-0" href="#">Contatti</a></li>
-        </ul>
-      </div>
-
-      <div class="col-12 col-md-auto text-md-end text-dark">
-        © 2025 Bambù • <span class="text-dark fw-bold">leonardolodi.dev</span>
+      <div class="col-12 col-md-auto text-center text-dark">
+        <span class="text-dark fw-bold">© 2025 Ristorante Pizzeria Bambù</span> - P.IVA: 02432840201  -<span class="text-dark fw-bold"> leonardolodi.dev</span>
       </div>
     </div>
   </div>
 </section>
 
-  <!-- JS -->
+  <!-- ======== JS ======== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
+    <!-- Bottoncino WhatsApp sticky -->
+<a href="https://wa.me/+393409040060" 
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chatta su WhatsApp">
+ <i class="bi bi-whatsapp"></i>
+</a>
   <!-- Swiper JS (dopo gli altri script) -->
 <script>
           /* Swiper */
@@ -483,18 +462,11 @@
       slidesPerView:1, spaceBetween:30,
       pagination:{el:'.swiper-pagination',clickable:true},
       navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'},
-      breakpoints:{992:{slidesPerView:2}}
+      breakpoints:{992:{slidesPerView:1}}
     });
 </script>
 
-  <!-- Bottoncino WhatsApp sticky -->
-<a href="#" 
-  class="whatsapp-float"
-  target="_blank"
-  rel="noopener"
-  aria-label="Chatta su WhatsApp">
- <i class="bi bi-whatsapp"></i>
-</a>
+
 
 <script>
   document.addEventListener('scroll',()=>{
