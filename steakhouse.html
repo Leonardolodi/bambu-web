@@ -24,7 +24,7 @@
   <style>
 
     /* Hero */
-    .hero{height:60vh;background:url('images/image00033.JPG') center/cover no-repeat;position:relative;display:flex;align-items:center}
+    .hero{height:60vh;background:url('images/image00027.JPG') center/cover no-repeat;position:relative;display:flex;align-items:center}
     .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.65)}
     .hero h1{z-index:2}
 
@@ -37,6 +37,28 @@
         height: 400px;
       }
     }
+
+    /* ——— Meat card ——— */
+.meat-card{
+  display:flex;           /* flex verticale: titolo + body */
+  flex-direction:column;
+  border:none;
+  overflow:hidden;
+  border-radius:1rem;
+}
+.title-bar{
+  background:var(--bs-primary);
+  color:#000;
+  padding:.9rem 1.25rem;
+  box-shadow:0 6px 20px rgba(0,0,0,.12);
+}
+.meat-info li{
+  display:flex;justify-content:space-between;
+  border-bottom:1px dashed rgba(0,0,0,.1);
+  padding:.25rem 0;
+}
+.bg-lime{ background:var(--bs-primary)!important; }
+.progress.small{ height:.55rem; }
   </style>
 </head>
 <body>
@@ -64,85 +86,224 @@
   <header class="hero d-flex justify-content-center">
     <div class="container text-left" style="z-index: 2;">
       <!-- Contenuto testuale -->
-      <h1 class="fw-bold text-uppercase px-3"><span class="text-primary">Chi siamo,</span>
-        Un percorso fatto di <span class="text-primary">famiglia, passione</span> e crescita sin dalle origini.</h1>
+      <h1 class="fw-bold text-uppercase px-3"><span class="text-primary">Steakhouse,</span>
+        Scopri le migliori razze per una esperienza <span class="text-primary">gustosa e unica</span>.
   </div>
 
   </header>
 
- <!-- SEZIONE CARNI SELEZIONATE -->
-<section class="py-5 px-3 bg-light">
+    <!-- MISSION & VALUES -->
+    <section id="mission" class="pt-5 px-3 position-relative bg-light text-dark overflow-hidden">
+      <!-- sfondo lime leggerissimo a “mesh” -->
+        <div class="container">
+         
+            <div class="text-center" data-aos="fade-up" data-aos-delay="50">
+              <h1 class="fw-bold mb-4">Scopri le nostre <span class="text-lime">Costate e Fiorentine</span></h1>
+              <p class="mb-4">
+                Ogni taglio è proposto in due varianti: <strong>costata o fiorentina</strong> con contorno di <strong>patate.</strong>
+              </p>
+             </div>
+        </div>
+      </section>
+
+      
+ <!-- SEZIONE · CARNI SELEZIONATE ----------------------------------->
+<section class="py-5 px-3 bg-light text-dark border-bottom border-2 border-primary">
   <div class="container">
 
-    <div class="row g-4 justify-content-center d-flex" data-aos="fade-up">
-      
-      <!-- =======================
-           CARD CARNE – Modello base 
-           Copia e incolla per aggiungere nuove carni
-      ======================== -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow menu-card h-100">
-          <div class="card-body">
-            <!-- NOME DELLA CARNE -->
-            <h2 class="bambu fw-semibold">Holstein</h2>
-            
-            <!-- DESCRIZIONE -->
-            <p class="card-text">
-              La carne Holstein Belga è una carne rossa rubino, ben marezzata, proveniente da vacche da latte, apprezzata per il suo gusto intenso.
+    <div class="row g-4 d-flex align-items-center justify-content-center" data-aos="fade-up">
+
+      <!-- ===== CARD HOLSTEIN ===== -->
+      <div class="col-md-6 col-lg-4">
+        <article class="meat-card h-100 glass-card border shadow">
+          <!-- Barra titolo -->
+          <header class="title-bar d-flex align-items-center justify-content-between">
+            <h3 class="h5 fw-bold mb-0">Holstein</h3>
+            <span class="badge bg-dark-subtle text-uppercase small text-dark"><i class="fi fi-be me-1"></i> Belgio</span>
+          </header>
+
+          <!-- Corpo -->
+          <div class="p-4 flex-grow-1">
+            <p class="small mb-4">
+              Vacche da latte marezzate: carne rosso rubino dal gusto intenso e succoso.
             </p>
-            
-            <!-- DETTAGLI TECNICI -->
-            <div class="menu-attributes">
-              <p><strong>Provenienza:</strong> Belgio</p>
-              <p><strong>Frollatura:</strong> 45gg</p>
-              <p><strong>Marezzatura:</strong> 6/7</p>
-              <p><strong>Gusto-Intensità:</strong> 8/10</p>
-              <hr>
-              <p>
-                <strong>Costata:</strong> <span class="bambu fs-4">75€</span><br>
-                <strong>Fiorentina:</strong> <span class="bambu fs-4">80€</span>
-              </p>
+
+            <ul class="meat-info list-unstyled small mb-4">
+              <li><i class="bi bi-hourglass-split text-primary me-1"></i>Frollatura&nbsp;<span>45&nbsp;gg</span></li>
+              <li><i class="bi bi-droplet-half text-primary me-1"></i>Marezzatura&nbsp;<span>6&nbsp;/&nbsp;7</span></li>
+              <li><i class="bi bi-fire text-primary me-1"></i>Intensità gusto&nbsp;<span>8&nbsp;/&nbsp;10</span></li>
+            </ul>
+
+            <!-- progress (marezzatura & gusto) -->
+            <div class="mb-4">
+              <label class="form-label small mb-1">Marezzatura</label>
+              <div class="progress small rounded-3">
+                <div class="progress-bar bg-lime" style="width:85%"></div>
+              </div>
+              <label class="form-label small mb-1 mt-3">Gusto-intensità</label>
+              <div class="progress small rounded-3">
+                <div class="progress-bar bg-lime" style="width:80%"></div>
+              </div>
+            </div>
+
+            <!-- prezzi -->
+            <div class="d-flex flex-wrap gap-2 fs-4">
+              <span class="price badge bg-lime text-dark">Costata € 75</span>
+              <span class="price badge bg-lime text-dark">Fiorentina € 80</span>
             </div>
           </div>
-        </div>
+        </article>
       </div>
-      <!-- / FINE CARD -->
 
-      <!-- UN'ALTRA CARD DI ESEMPIO -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow menu-card h-100">
-          <div class="card-body">
-            <h2 class="bambu fw-semibold">Simmental</h2>
-            <p class="card-text">
-              La carne di Simmental bavarese è tenera, succosa e poco marezzata, con un sapore delicato e bilanciato.
+      <!-- ===== CARD SIMMENTAL ===== -->
+      <div class="col-md-6 col-lg-4">
+        <article class="meat-card h-100 glass-card border shadow">
+          <header class="title-bar d-flex align-items-center justify-content-between">
+            <h3 class="h5 fw-bold mb-0">Simmental</h3>
+            <span class="badge bg-dark-subtle small text-dark"><i class="fi fi-de me-1"></i> Germania</span>
+          </header>
+
+          <div class="p-4 flex-grow-1">
+            <p class="small mb-4">
+              Carne bavarese tenera e poco marezzata, dal sapore delicato ed equilibrato.
             </p>
-            <div class="menu-attributes">
-              <p><strong>Provenienza:</strong> Germania</p>
-              <p><strong>Frollatura:</strong> 30gg</p>
-              <p><strong>Marezzatura:</strong> 2/7</p>
-              <p><strong>Gusto-Intensità:</strong> 2/10</p>
-              <hr>
-              <p>
-                <strong>Costata:</strong> <span class="bambu fs-4">55€</span><br>
-                <strong>Fiorentina:</strong> <span class="bambu fs-4">60€</span>
-              </p>
+
+            <ul class="meat-info list-unstyled small mb-4">
+              <li><i class="bi bi-hourglass-split text-primary me-1"></i>Frollatura&nbsp;<span>30&nbsp;gg</span></li>
+              <li><i class="bi bi-droplet-half text-primary me-1"></i>Marezzatura&nbsp;<span>2&nbsp;/&nbsp;7</span></li>
+              <li><i class="bi bi-fire text-primary me-1"></i>Intensità gusto&nbsp;<span>2&nbsp;/&nbsp;10</span></li>
+            </ul>
+
+            <div class="mb-4">
+              <label class="form-label small mb-1">Marezzatura</label>
+              <div class="progress small rounded-3">
+                <div class="progress-bar bg-lime" style="width:30%"></div>
+              </div>
+              <label class="form-label small mb-1 mt-3">Gusto-intensità</label>
+              <div class="progress small rounded-3">
+                <div class="progress-bar bg-lime" style="width:20%"></div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 fs-4">
+              <span class="price badge bg-lime text-dark">Costata € 55</span>
+              <span class="price badge bg-lime text-dark">Fiorentina € 60</span>
             </div>
           </div>
-        </div>
+        </article>
       </div>
-      <!-- / FINE CARD -->
 
-      <!-- 
-        Per aggiungere una nuova carne:
-        1. Copia una <div class="col-md-4">...</div> completa.
-        2. Modifica nome, descrizione e dati.
-        3. Incolla dentro .row g-4 ...
-      -->
-
+      <!-- → Duplica <div class="col-md-6 col-lg-4">…</div> per altre carni -->
     </div>
   </div>
 </section>
 
+<!-- =========================================
+     SECTION · COSTATA vs FIORENTINA
+========================================= -->
+<section id="costata-fiorentina"
+         class="py-5 px-3 position-relative bg-light text-dark overflow-hidden border-bottom border-2 border-primary">
+  <div class="container">
+    <div class="row align-items-center g-md-5 g-0">
+      <!-- immagine (desktop a destra) -->
+      <div class="col-lg-5 order-lg-2" data-aos="fade-left">
+        <img src="https://placehold.co/600x440?text=Costata+%2B+Fiorentina"
+             alt="Costata e Fiorentina" class="img-fluid rounded-4 shadow-lg">
+      </div>
+
+      <!-- testo -->
+      <div class="col-lg-6 order-lg-1 pt-md-0 pt-5" data-aos="fade-right" data-aos-delay="50">
+        <h1 class="fw-bold mb-4">
+          Costata <span class="text-lime">o</span> Fiorentina?
+        </h1>
+
+        <h4 class="fw-semibold">Costata</h4>
+        <p class="mb-4">
+          Ricavata dalla parte anteriore della lombata, <strong>priva di filetto</strong>
+          ma con una marezzatura generosa che le conferisce <em>succosità</em> e un gusto deciso.
+          La scelta ideale per chi ama una consistenza soda e sapori intensi.
+        </p>
+
+        <h4 class="fw-semibold">Fiorentina</h4>
+        <p class="mb-0">
+          Comprende <strong>filetto + controfiletto</strong> separati dal celebre osso a “T”.
+          Taglio nobile della tradizione toscana, celebre per la <em>morbidezza</em>
+          e il sapore elegante che mette d’accordo tutti i palati.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     SECTION · FROLLATURA & MAREZZATURA
+========================================= -->
+<section id="frollatura-marezzatura"
+         class="py-5 px-3 position-relative bg-light text-dark overflow-hidden border-bottom border-2 border-primary">
+  <div class="container">
+    <div class="row align-items-center g-md-5 g-0">
+
+
+      <!-- testo -->
+      <div class="col-lg-9 order-lg-2 pt-md-0 pt-5" data-aos="fade-up" data-aos-delay="50">
+        <h1 class="fw-bold mb-4">
+          Frollatura <span class="text-lime">&</span> Marezzatura
+        </h1>
+
+        <h4 class="fw-semibold">Frollatura</h4>
+        <p class="mb-4">
+          Riposo controllato della carne (20 – 60+ giorni) in celle refrigerate:
+          gli enzimi naturali <em>ammorbidiscono</em> le fibre e concentrano
+          aromi decisi per un risultato tenero e saporito.
+        </p>
+
+        <h4 class="fw-semibold">Marezzatura</h4>
+        <p class="mb-0">
+          Venature di <strong>grasso intramuscolare</strong> che sciogliendosi
+          in cottura regalano <em>succosità</em> e note burrose; più è alta,
+          più l’esperienza gustativa sarà ricca e avvolgente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="py-5 px-3 bg-light border-bottom border-2 border-primary" style="scroll-margin:150px;">
+      <div class="container">
+        <div class="row align-items-center g-md-5 g-0">
+          <div class="col-lg-6" data-aos="fade-up">
+            <img src="images/image00006.JPG" class="img-fluid rounded-4 shadow-lg" alt="About us placeholder">
+          </div>
+          <div class="col-lg-6 pt-md-0 pt-5 text-dark" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="fw-bold mb-3">Qualtà, passione e Famiglia <span class="text-lime">dal 2014</h1></span>
+            <p class="mb-4">
+              Dalla classica <strong>margherita</strong> a <strong>costate</strong> e <strong>fiorentine</strong> scelte da tutta <strong>Europa</strong>, fondiamo <strong>passione</strong> e <strong>ricerca</strong> per stupirti ad ogni morso.
+            </p>
+            <p class="mb-4">
+              Oggi <strong>Bambù</strong> è molto più di una <strong>pizzeria</strong>: è uno <strong>spazio</strong> dove <strong>incontrarsi</strong>, <strong>degustare</strong> e perfino <strong>pernottare</strong> nelle <strong>camere</strong> sopra il locale. Continuiamo a crescere con un obiettivo semplice: servire un’<strong>esperienza memorabile</strong>, <strong>fetta dopo fetta</strong>, <strong>sorriso dopo sorriso</strong>.
+            </p>
+  
+            <!-- <div class="row text-center g-4 mb-4">
+              <div class="col-6">
+                <div class="glass-card p-4">
+                  <h3 class="display-6 fw-bold text-primary mb-0">5★</h3>
+                  <small>Media Recensioni</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="glass-card p-4">
+                  <h3 class="display-6 fw-bold text-primary mb-0">5★</h3>
+                  <small>Media Recensioni</small>
+                </div>
+              </div>
+            </div> -->
+            <a href="chisiamo.html" class="btn btn-lg btn-dark">La nostra storia<i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    
+    </section>
 
   <!-- MISSION & VALUES -->
   <section id="mission" class="py-5 px-3 position-relative bg-light text-dark overflow-hidden border-bottom border-2 border-primary">
